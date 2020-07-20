@@ -51,7 +51,7 @@ $routes->get('/search', 'AdminController::Search');
 $routes->get('/chart', 'AdminController::Chart');
 
 //Course
-$routes->get('/test', 'CourseController::Test');
+$routes->get('/test55', 'CourseController::Test');
 $routes->get('/course', 'CourseController::Add_Course');
 $routes->add('/course/createcourse', 'CourseController::CreateCourse');
 /**

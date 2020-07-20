@@ -39,8 +39,8 @@
 		<link rel="preload" href="<?php echo base_url('assets/css/footer.css'); ?>" as="style" onload="this.rel='stylesheet'">
 
 		<!-- Css player video -->
-		<script src="https://cdn.plyr.io/3.6.2/plyr.js"></script>
-		<link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css" />
+		<script src="<?php echo base_url('https://cdn.plyr.io/3.6.2/plyr.js'); ?>"></script>
+		<link rel="stylesheet" href="<?php echo base_url('https://cdn.plyr.io/3.6.2/plyr.css'); ?>" />
 	</head>
 
 	<?php

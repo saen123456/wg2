@@ -61,7 +61,7 @@ class CourseController extends BaseController
             //$Photo_Type = $upload_to . $Photo_Random_Name;
             $file->move('./public/upload', $file_random);
             $model->Upload_Video($title, $file_random);
-            return redirect()->to(base_url('test'));
+            return redirect()->to(base_url('test55'));
             /*$User_Data = $model->Select_AllData($Email);
             while ($User = $User_Data->fetchRow()) {
                 $Picture = $User['picture'];
