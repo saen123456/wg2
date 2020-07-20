@@ -78,10 +78,10 @@ class User_model extends Model
         $sql = "INSERT INTO user_register (first_name, email,password,role_id,activated,email_md5_activated,user_login_type) VALUES('$First_Name','$Email','$Password_md5','1','0','$hash','normal')";
         $this->connect_postgresdb->execute($sql); //จะทำการ Insert ข้อมูลเข้า ฐานข้อมูล
     }
-    public function Insert_Google_Register($user_first_name, $user_last_name, $user_email_address, $user_gender, $user_image)
+    public function Insert_Google_Register($user_first_name, $user_last_name, $user_email_address, $user_image)
     {
         //echo $user_first_name;
-        $sql = "INSERT INTO user_register (first_name,last_name,email,gender,picture,role_id,activated,user_login_type) VALUES('$user_first_name','$user_last_name','$user_email_address','$user_gender','$user_image','1','1','google')";
+        $sql = "INSERT INTO user_register (first_name,last_name,email,picture,role_id,activated,user_login_type) VALUES('$user_first_name','$user_last_name','$user_email_address','$user_image','1','1','google')";
         $this->connect_postgresdb->execute($sql); //จะทำการ Insert ข้อมูลเข้า ฐานข้อมูล
     }
     public function Insert_Facebook_Register($user_name, $user_email_address, $user_image)
@@ -90,9 +90,9 @@ class User_model extends Model
         $sql = "INSERT INTO user_register (first_name,email,picture,role_id,activated,user_login_type) VALUES('$user_name','$user_email_address','$user_image','1','1','facebook')";
         $this->connect_postgresdb->execute($sql); //จะทำการ Insert ข้อมูลเข้า ฐานข้อมูล
     }
-    public function Update_User_Google_Login($user_first_name, $user_last_name, $user_email_address, $user_gender, $user_image)
+    public function Update_User_Google_Login($user_first_name, $user_last_name, $user_email_address, $user_image)
     {
-        $sql = "UPDATE user_register SET first_name = '$user_first_name',last_name = '$user_last_name',email = '$user_email_address',gender = '$user_gender',picture = '$user_image' WHERE email = '$user_email_address' AND user_login_type = 'google' ";
+        $sql = "UPDATE user_register SET first_name = '$user_first_name',last_name = '$user_last_name',email = '$user_email_address',picture = '$user_image' WHERE email = '$user_email_address' AND user_login_type = 'google' ";
         $this->connect_postgresdb->execute($sql); //จะทำการ update ข้อมูล facebook เข้า ฐานข้อมูล
     }
     public function Update_User_Facebook_Login($user_name, $user_email_address, $user_image)

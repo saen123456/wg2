@@ -65,10 +65,6 @@ class UserGoogleController extends BaseController
                     $user_email_address = $data['email'];
                 }
 
-                if (!empty($data['gender'])) {
-                    $user_gender = $data['gender'];
-                }
-
                 if (!empty($data['picture'])) {
                     $user_image = $data['picture'];
                 }
@@ -76,7 +72,7 @@ class UserGoogleController extends BaseController
         }
         echo $user_first_name . " " . $user_last_name;
         if ($model->Check_User_Google_Exist($user_email_address)) { //Check_User_Exist() คือการเช็คEmail ว่ามีอยู่ในDatabase หรือเปล่า
-            $model->Update_User_Google_Login($user_first_name, $user_last_name, $user_email_address, $user_gender, $user_image);
+            $model->Update_User_Google_Login($user_first_name, $user_last_name, $user_email_address, $user_image);
             $User_Data = $model->Check_User_Google_Login($user_email_address);
             while ($User = $User_Data->fetchRow()) {
                 $First_name = $User['first_name'];
@@ -102,7 +98,7 @@ class UserGoogleController extends BaseController
                 echo "<script type='text/javascript'>alert('บางอย่างผิดพลาด');window.location.href = '" . base_url() . "/home';</script>";
             }
         } else {
-            $model->Insert_Google_Register($user_first_name, $user_last_name, $user_email_address, $user_gender, $user_image); //Insert_Google_Register() คือการ Insert ข้อมูลลงใน Databse
+            $model->Insert_Google_Register($user_first_name, $user_last_name, $user_email_address, $user_image); //Insert_Google_Register() คือการ Insert ข้อมูลลงใน Databse
             $User_Data = $model->Check_User_Google_Login($user_email_address);
             while ($User = $User_Data->fetchRow()) {
                 $First_name = $User['first_name'];
