@@ -323,44 +323,54 @@ class UserController extends BaseController
             $Activated = $User['activated'];
             $Role_Name = $User['role_name'];
         }
+        // if (isset($Email)) {
+        //     echo $Email;
+        // } else {
+        //     echo "error";
+        // }
 
-        if ($Email_Login == $Email && $Password_Login == $Password && $Activated == 1) {
-            $this->Data = [
-                'Full_name' => $Full_Name,
-                'Role_name' => $Role_Name,
-                'Email' => $Email,
-                'Picture' => $Picture,
-                'Type' => 'normal',
-            ];
-            $this->session->set($this->Data);
-            return redirect()->to(base_url('homepage'));
-        } else if ($Email_Login == $Email && $Password_Login == $Password && $Activated == 1) {
-            $this->Data = [
-                'Full_name' => $Full_Name,
-                'Role_name' => $Role_Name,
-                'Email' => $Email,
-                'Picture' => $Picture,
-                'Type' => 'normal'
-            ];
-            $this->session->set($this->Data);
-            return redirect()->to(base_url('homepage'));
-        } else if ($Email_Login == $Email && $Password_Login == $Password && $Activated == 1 && $Role_Name == 'admin') {
-            $this->Data = [
-                'Full_name' => $Full_Name,
-                'Role_name' => $Role_Name,
-                'Email' => $Email,
-                'Picture' => $Picture,
-            ];
-            $this->session->set($this->Data);
-            return redirect()->to(base_url('homepage'));
-        } else if ($Email_Login == $Email && $Password_Login == $Password && $Activated == 0) {
-            $msg = '&nbsp&nbsp&nbsp&nbsp&nbspคุณต้องยืนยันอีเมลก่อน&nbsp&nbsp&nbsp&nbsp&nbsp';
-            return redirect()->to(base_url('/login'))->with('incorrect', $msg);
-            //echo '<p style="color:#FF0000";>คุณต้องยืนยันอีเมลก่อน</p>';
+        if (isset($Email)) {
+            if ($Email_Login == $Email && $Password_Login == $Password && $Activated == 1) {
+                $this->Data = [
+                    'Full_name' => $Full_Name,
+                    'Role_name' => $Role_Name,
+                    'Email' => $Email,
+                    'Picture' => $Picture,
+                    'Type' => 'normal',
+                ];
+                $this->session->set($this->Data);
+                return redirect()->to(base_url('homepage'));
+            } else if ($Email_Login == $Email && $Password_Login == $Password && $Activated == 1) {
+                $this->Data = [
+                    'Full_name' => $Full_Name,
+                    'Role_name' => $Role_Name,
+                    'Email' => $Email,
+                    'Picture' => $Picture,
+                    'Type' => 'normal'
+                ];
+                $this->session->set($this->Data);
+                return redirect()->to(base_url('homepage'));
+            } else if ($Email_Login == $Email && $Password_Login == $Password && $Activated == 1 && $Role_Name == 'admin') {
+                $this->Data = [
+                    'Full_name' => $Full_Name,
+                    'Role_name' => $Role_Name,
+                    'Email' => $Email,
+                    'Picture' => $Picture,
+                ];
+                $this->session->set($this->Data);
+                return redirect()->to(base_url('homepage'));
+            } else if ($Email_Login == $Email && $Password_Login == $Password && $Activated == 0) {
+                $msg = '&nbsp&nbsp&nbsp&nbsp&nbspคุณต้องยืนยันอีเมลก่อน&nbsp&nbsp&nbsp&nbsp&nbsp';
+                return redirect()->to(base_url('/login'))->with('incorrect', $msg);
+                //echo '<p style="color:#FF0000";>คุณต้องยืนยันอีเมลก่อน</p>';
+            } else {
+                $msg = '&nbsp&nbsp&nbsp&nbsp&nbspอีเมล หรือ รหัสผ่านผิดกรุณากรอกใหม่&nbsp&nbsp&nbsp&nbsp&nbsp';
+                return redirect()->to(base_url('/login'))->with('incorrect', $msg);
+                //echo '<p style="color:#FF0000";>อีเมล หรือ รหัสผ่านผิดกรุณากรอกใหม่</p>';
+            }
         } else {
             $msg = '&nbsp&nbsp&nbsp&nbsp&nbspอีเมล หรือ รหัสผ่านผิดกรุณากรอกใหม่&nbsp&nbsp&nbsp&nbsp&nbsp';
             return redirect()->to(base_url('/login'))->with('incorrect', $msg);
-            //echo '<p style="color:#FF0000";>อีเมล หรือ รหัสผ่านผิดกรุณากรอกใหม่</p>';
         }
     }
     /**
