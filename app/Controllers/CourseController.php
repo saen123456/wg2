@@ -50,7 +50,7 @@ class CourseController extends BaseController
 
         //echo $file->getClientName();
         if ($file->getSize() > 0) {
-            $file_random = $file->getRandomName();
+            $file_random = $file->getClientName();
             $upload_to = 'public/upload/';
 
             /*$image = \Config\Services::image()

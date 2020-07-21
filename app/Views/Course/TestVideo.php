@@ -9,7 +9,7 @@
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 
 		<title>Workgress</title>
-
+		<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
 		<!-- Font Awesome Icons -->
 		<link rel="stylesheet" href="<?php echo base_url('plugins/fontawesome-free/css/all.min.css'); ?>">
 		<!-- Theme style -->
@@ -39,8 +39,10 @@
 		<link rel="preload" href="<?php echo base_url('assets/css/footer.css'); ?>" as="style" onload="this.rel='stylesheet'">
 
 		<!-- Css player video -->
-		<script src="https://cdn.plyr.io/3.6.2/plyr.js"></script>
-		<link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css">
+		<!-- <script src="https://cdn.plyr.io/3.6.2/plyr.js"></script> -->
+		<!-- <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css"> -->
+		<script src="<?php echo base_url('assets/VideoPlayer/plyr.js'); ?>"></script>
+		<link rel="preload" href="<?php echo base_url('assets/VideoPlayer/plyr.css'); ?>" as="style" onload="this.rel='stylesheet'">
 	</head>
 
 	<?php
@@ -218,7 +220,7 @@
 						$count++;
 						echo $row['video_id'] . " " . $row['video_name'] . " " . $row['video_link'];
 						echo "<br>";
-						echo "<video id='player$count' playsinline controls data-poster='/path/to/poster.jpg'><source src='" . base_url('/public/upload/' . $row['video_link']) . "' type='video/webm'></video>";
+						echo "<video id='player$count' playsinline controls data-poster=''><source src='" . base_url('/public/upload/' . $row['video_link']) . "' type='video/webm'></video>";
 					?>
 						<script>
 							const player<?php echo $count ?> = new Plyr('#player<?php echo $count ?>');
