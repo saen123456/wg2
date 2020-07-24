@@ -173,9 +173,9 @@ class CourseController extends BaseController
         set_time_limit(0);
         $file = $this->request->getFile('file');
         $storage = new StorageClient();
-        // $bucket = $storage->bucket('workgress');
-        // $object = $bucket->upload($file, [
-        //     'name' => $file->getClientName()
-        // ]);
+        $bucket = $storage->bucket('workgress');
+        $object = $bucket->upload($file, [
+            'name' => $file->getClientName()
+        ]);
     }
 }
