@@ -43,7 +43,7 @@
 		<!-- <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css"> -->
 		<script src="<?php echo base_url('assets/VideoPlayer/plyr.js'); ?>"></script>
 		<link rel="preload" href="<?php echo base_url('assets/VideoPlayer/plyr.css'); ?>" as="style" onload="this.rel='stylesheet'">
-		<link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.svg">
+
 
 	</head>
 
@@ -223,9 +223,13 @@
 						echo $row['video_id'] . " " . $row['video_name'] . " " . $row['video_link'];
 						echo "<br>";
 						echo "<video id='player$count' playsinline controls data-poster=''>
-						<source src='https://www.googleapis.com/drive/v3/files/" . $row['video_link'] . "?alt=media&key=AIzaSyBUIxrlSOYtQP8c9vkX4_twLMFPOm0iDUs' type='video/mp4'>
-						</video>";
+						<source src='https://www.googleapis.com/drive/v3/files/" . $row['video_link'] . "?alt=media&key=AIzaSyBUIxrlSOYtQP8c9vkX4_twLMFPOm0iDUs' type='video/webm'>
+						</video>"
 
+						// echo "<video id='player$count' playsinline controls data-poster=''>
+						// <source src='https://drive.google.com/file/d/" . $row['video_link'] . "/preview' type='video/webm'>
+						// </video>"
+						// echo "<iframe src='https://drive.google.com/file/d/" . $row['video_link'] . "/preview' width='600' height='480'></iframe>";
 					?>
 						<script>
 							const player<?php echo $count ?> = new Plyr('#player<?php echo $count ?>');
@@ -234,7 +238,18 @@
 					endforeach;
 					?>
 				</div>
+				<?php
+				echo "<video id='player' playsinline controls data-poster=''>
+						<source src='https://storage.cloud.google.com/exaple_test-1/200420_Selenium_Grid_Pipat~1.webm' type='video/webm'>
+						</video>";
 
+				?>
+				<script>
+					const player = new Plyr('#player');
+				</script>
+				<?php
+
+				?>
 
 			</div>
 

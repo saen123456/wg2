@@ -80,11 +80,11 @@ class Google_Service_RemoteBuildExecution extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'inlineStdout' => array(
+                'inlineStderr' => array(
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'inlineStderr' => array(
+                'inlineStdout' => array(
                   'location' => 'query',
                   'type' => 'boolean',
                 ),

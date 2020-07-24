@@ -104,7 +104,7 @@ class Admin_model extends Model
     public function insert_ja($first_name, $email, $password, $role_id)
     {
 
-        $sql = "INSERT INTO user_register (first_name, email, password, role_id , activated,user_login_type) VALUES('$first_name','$email','$password','$role_id','1','normal')";
+        $sql = "INSERT INTO user_register (first_name, email, password, role_id , activated,user_login_type,update_date,create_date) VALUES('$first_name','$email','$password','$role_id','1','normal',now(),now())";
         $this->connect_postgresdb->execute($sql);
     }
     /**
@@ -113,7 +113,7 @@ class Admin_model extends Model
      */
     public function update_ja($user_id, $first_name, $role_id)
     {
-        $sql = " UPDATE user_register SET first_name = '$first_name' , role_id =  '$role_id' WHERE user_id = $user_id ";
+        $sql = " UPDATE user_register SET first_name = '$first_name' , role_id =  '$role_id' , update_date = now() WHERE user_id = $user_id ";
         $this->connect_postgresdb->execute($sql);
     }
     /**

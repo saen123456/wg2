@@ -6,10 +6,13 @@ use App\Models\Course_model;
 use Google_Client;
 use Google_Service_Drive;
 use Google_Service_Drive_DriveFile;
+use Google\Cloud\Storage\StorageClient;
+
 
 class CourseController extends BaseController
 {
     protected $session;
+    private $storage;
     public function __construct()
     {
         $this->session = \Config\Services::session();
@@ -72,7 +75,7 @@ class CourseController extends BaseController
         }
     }*/
 
-    public function Upload_Video()
+    /*public function Upload_Video()
     {
         $model = new Course_model();
         function getClient()
@@ -134,16 +137,38 @@ class CourseController extends BaseController
         //echo $file['file']['type'];
         $fileMetadata = new Google_Service_Drive_DriveFile(array(
             'name' => $file['file']['name'], //ชื่อที่จะเอาเข้า google ชื่อว่าอะไร
-            'parents' => array('1PTbuFTmnD5AHrNX5r0f2XOdBbRa-vQjT') //ชื่อ folder
+            'parents' => array('1PTbuFTmnD5AHrNX5r0f2XOdBbRa-vQjT') //ชื่อ folder ใน google drive
         ));
         $content = file_get_contents($file['file']['tmp_name']);
         $file = $service->files->create($fileMetadata, array(
             'mimeType' => $file['file']['type'],
             'data' => $content,
-
         ));
         //echo $file->getId();
         $model->Upload_Video($file->getId());
         return redirect()->to(base_url('test55'));
+    }*/
+
+    public function Create_Bucket()
+    {
+        putenv("GOOGLE_APPLICATION_CREDENTIALS=workgress.json");
+
+        # Your Google Cloud Platform project ID
+        $projectId = 'workgress';
+        # Instantiates a client
+        $this->storage = new StorageClient([
+            'projectId' => $projectId
+        ]);
+
+        # The name for the new bucket
+        $bucketName = 'workgress';
+
+        # Creates the new bucket
+        $bucket = $this->storage->createBucket($bucketName);
+
+        echo 'Bucket ' . $bucket->name() . ' created.';
+    }
+    public function Upload_Video()
+    {
     }
 }
