@@ -170,12 +170,27 @@ class CourseController extends BaseController
     // }
     public function Upload_Video()
     {
-        set_time_limit(0);
+        $model = new Course_model();
         $file = $this->request->getFile('file');
         $storage = new StorageClient();
         $bucket = $storage->bucket('workgress');
         $object = $bucket->upload($file, [
             'name' => $file->getClientName()
         ]);
+        //$model->Upload_Video($file->getId());
+    }
+    public function Link_Video()
+    {
+        $model = new Course_model();
+        $file = $this->request->getFile('file');
+        $storage = new StorageClient();
+        $bucket = $storage->bucket('workgress');
+        $object = $bucket->upload($file, [
+            'name' => $file->getClientName()
+        ]);
+        $filename = $file->getClientName();
+        $filelink = "https://storage.cloud.google.com/workgress/'" . $file->getClientName() . "'";
+        $model->Upload_Video($filename, $filelink);
+        return redirect()->to(base_url('test55'));
     }
 }

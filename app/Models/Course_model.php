@@ -37,10 +37,10 @@ class Course_model extends Model
         $sql = "SELECT video_id,video_name,video_link from video";
         return $this->connect_postgresdb->execute($sql);
     }
-    public function Upload_Video($file_random)
+    public function Upload_Video($filename, $filelink)
     {
         //echo $user_first_name;
-        $sql = "INSERT INTO video (video_link) VALUES('$file_random')";
+        $sql = "INSERT INTO video (video_name,video_link) VALUES('$filename','$filelink')";
         $this->connect_postgresdb->execute($sql); //จะทำการ Insert ข้อมูลเข้า ฐานข้อมูล
     }
     public function Insert_Course($course_name, $category_course_id, $course_description, $User_id)
