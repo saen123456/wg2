@@ -106,7 +106,7 @@ class CourseController extends BaseController
         $bucket->upload($content, [
             'name' => $file['file']['name']
         ]);
-        $filename = $file['upload']['name'];
+        $filename = $file['file']['name'];
         $filelink = "https://storage.cloud.google.com/workgress/" . $file['file']['name'];
         //echo $filename . " " . $filelink;
         $model->Upload_Video($filename, $filelink);
