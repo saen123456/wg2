@@ -27,15 +27,29 @@ class Course_model extends Model
         $this->connect_postgresdb->debug = false;
         $this->connect_postgresdb->connect($this->server, $this->user, $this->password, $this->database);
     }
-    public function Select_Video()
+    // public function Select_Video()
+    // {
+    //     $sql = "SELECT video_id,video_name,video_link from video";
+    //     return $this->connect_postgresdb->execute($sql);
+    // }
+    public function Select_Video_Google_Drive()
     {
         $sql = "SELECT video_id,video_name,video_link from video";
         return $this->connect_postgresdb->execute($sql);
     }
-    public function Upload_Video($title, $file_random)
+    public function Upload_Video($file_random)
     {
         //echo $user_first_name;
-        $sql = "INSERT INTO video (video_name,video_link) VALUES('$title','$file_random')";
+        $sql = "INSERT INTO video (video_link) VALUES('$file_random')";
         $this->connect_postgresdb->execute($sql); //จะทำการ Insert ข้อมูลเข้า ฐานข้อมูล
+    }
+    public function Insert_Course($course_name, $category_course_id, $course_description, $User_id)
+    {
+        $sql = "INSERT INTO course (category_course_id,course_name, course_description, create_date)VALUES ($category_course_id,'$course_name','$course_description',now())";
+        $this->connect_postgresdb->execute($sql);
+        $sql3 = "SELECT max(course_id) FROM course";
+        $count_course = $this->connect_postgresdb->getOne($sql3);
+        $sql2 = "INSERT INTO user_create_course (user_id,course_id) VALUES ($User_id,$count_course)";
+        $this->connect_postgresdb->execute($sql2);
     }
 }

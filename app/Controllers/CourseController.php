@@ -3,6 +3,9 @@
 namespace App\Controllers;
 
 use App\Models\Course_model;
+use Google_Client;
+use Google_Service_Drive;
+use Google_Service_Drive_DriveFile;
 
 class CourseController extends BaseController
 {
@@ -16,7 +19,7 @@ class CourseController extends BaseController
     {
 
         if ($this->session->get("Role_name") == 'teacher' || $this->session->get("Role_name") == 'admin') {
-            echo view('Course/course');
+            echo view('Course/Course');
         } else {
             echo view('home/HomePage');
         }
@@ -34,14 +37,25 @@ class CourseController extends BaseController
     {
         if ($this->session->get("Role_name") == 'teacher' || $this->session->get("Role_name") == 'admin') {
             $model = new Course_model();
-            $data['data'] = $model->Select_Video();
+            // $data['data'] = $model->Select_Video();
+            $data['data'] = $model->Select_Video_Google_Drive();
             echo view('Course/TestVideo', $data);
         } else {
             echo view('home/HomePage');
         }
     }
-
-    public function Upload_Video()
+    public function Create_Course()
+    {
+        $course_name = $this->request->getVar('course_name');
+        $category_course_id = $this->request->getVar('category_course_id');
+        $course_description = $this->request->getVar('course_description');
+        $User_id = $this->session->get("User_id");
+        $model_course = new Course_model();
+        $model_course->Insert_Course($course_name, $category_course_id, $course_description, $User_id);
+        $msg = '&nbsp&nbsp&nbsp&nbsp&nbspสร้างคอร์สเรียบร้อยแล้ว&nbsp&nbsp&nbsp&nbsp&nbsp';
+        return redirect()->to(base_url('course'))->with('correct', $msg);
+    }
+    /*public function Upload_Video()
     {
         $model = new Course_model();
         $title = $this->request->getVar("title");
@@ -51,28 +65,85 @@ class CourseController extends BaseController
         //echo $file->getClientName();
         if ($file->getSize() > 0) {
             $file_random = $file->getClientName();
-            $upload_to = 'public/upload/';
 
-            /*$image = \Config\Services::image()
-                ->withFile($Photo)
-                ->fit(626, 626, 'center')
-                ->save('./public/upload/' . $Photo_Random_Name);*/
-
-            //$Photo_Type = $upload_to . $Photo_Random_Name;
             $file->move('./public/upload', $file_random);
             $model->Upload_Video($title, $file_random);
             return redirect()->to(base_url('test55'));
-            /*$User_Data = $model->Select_AllData($Email);
-            while ($User = $User_Data->fetchRow()) {
-                $Picture = $User['picture'];
-            }
-            //echo '<img src="'.$Picture.'"/>';
-            $this->Data = [
-                'Picture' => $Picture,
-            ];
-            $this->session->set($this->Data);
-            $msg = '&nbsp&nbsp&nbsp&nbsp&nbspอัพเดทโปรไฟล์เรียบร้อย&nbsp&nbsp&nbsp&nbsp&nbsp';
-            return redirect()->to(base_url('profile'))->with('correct', $msg);*/
         }
+    }*/
+
+    public function Upload_Video()
+    {
+        $model = new Course_model();
+        function getClient()
+        {
+            $client = new Google_Client();
+            $client->setApplicationName('Google Drive API PHP Quickstart');
+            $client->setScopes(Google_Service_Drive::DRIVE);
+            $client->setAuthConfig('client_secret.json');
+            $client->setAccessType('offline');
+            $client->setPrompt('select_account consent');
+
+            // Load previously authorized token from a file, if it exists.
+            // The file token.json stores the user's access and refresh tokens, and is
+            // created automatically when the authorization flow completes for the first
+            // time.
+            $tokenPath = 'token.json';
+            if (file_exists($tokenPath)) {
+                $accessToken = json_decode(file_get_contents($tokenPath), true);
+                $client->setAccessToken($accessToken);
+            }
+
+            // If there is no previous token or it's expired.
+            if ($client->isAccessTokenExpired()) {
+                // Refresh the token if possible, else fetch a new one.
+                if ($client->getRefreshToken()) {
+                    $client->fetchAccessTokenWithRefreshToken($client->getRefreshToken());
+                } else {
+                    // Request authorization from the user.
+                    $authUrl = $client->createAuthUrl();
+                    printf("Open the following link in your browser:\n%s\n", $authUrl);
+                    print 'Enter verification code: ';
+                    $authCode = trim(fgets(STDIN));
+
+                    // Exchange authorization code for an access token.
+                    $accessToken = $client->fetchAccessTokenWithAuthCode($authCode);
+                    $client->setAccessToken($accessToken);
+
+                    // Check to see if there was an error.
+                    if (array_key_exists('error', $accessToken)) {
+                        throw new Exception(join(', ', $accessToken));
+                    }
+                }
+                // Save the token to a file.
+                if (!file_exists(dirname($tokenPath))) {
+                    mkdir(dirname($tokenPath), 0700, true);
+                }
+                file_put_contents($tokenPath, json_encode($client->getAccessToken()));
+            }
+            return $client;
+        }
+
+
+        // Get the API client and construct the service object.
+        $client = getClient();
+        $service = new Google_Service_Drive($client);
+
+        // $file = $this->request->getFile('file');
+        $file = $_FILES;
+        //echo $file['file']['type'];
+        $fileMetadata = new Google_Service_Drive_DriveFile(array(
+            'name' => $file['file']['name'], //ชื่อที่จะเอาเข้า google ชื่อว่าอะไร
+            'parents' => array('1PTbuFTmnD5AHrNX5r0f2XOdBbRa-vQjT') //ชื่อ folder
+        ));
+        $content = file_get_contents($file['file']['tmp_name']);
+        $file = $service->files->create($fileMetadata, array(
+            'mimeType' => $file['file']['type'],
+            'data' => $content,
+
+        ));
+        //echo $file->getId();
+        $model->Upload_Video($file->getId());
+        return redirect()->to(base_url('test55'));
     }
 }

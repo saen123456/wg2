@@ -314,6 +314,7 @@ class UserController extends BaseController
         $User_Data = $model->Check_User_Pass_Login($Email_Login);
 
         while ($User = $User_Data->fetchRow()) {
+            $User_id = $User['user_id'];
             $Full_Name = $User['first_name'];
             $Email = $User['email'];
             $Password = $User['password'];
@@ -332,6 +333,7 @@ class UserController extends BaseController
         if (isset($Email)) {
             if ($Email_Login == $Email && $Password_Login == $Password && $Activated == 1) {
                 $this->Data = [
+                    'User_id' => $User_id,
                     'Full_name' => $Full_Name,
                     'Role_name' => $Role_Name,
                     'Email' => $Email,
@@ -342,6 +344,7 @@ class UserController extends BaseController
                 return redirect()->to(base_url('homepage'));
             } else if ($Email_Login == $Email && $Password_Login == $Password && $Activated == 1) {
                 $this->Data = [
+                    'User_id' => $User_id,
                     'Full_name' => $Full_Name,
                     'Role_name' => $Role_Name,
                     'Email' => $Email,
@@ -352,6 +355,7 @@ class UserController extends BaseController
                 return redirect()->to(base_url('homepage'));
             } else if ($Email_Login == $Email && $Password_Login == $Password && $Activated == 1 && $Role_Name == 'admin') {
                 $this->Data = [
+                    'User_id' => $User_id,
                     'Full_name' => $Full_Name,
                     'Role_name' => $Role_Name,
                     'Email' => $Email,

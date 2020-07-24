@@ -212,7 +212,7 @@ class User_model extends Model
      */
     public function Check_User_Pass_Login($Email_Login)
     {
-        $sql = "SELECT user_register.first_name,user_register.email,user_register.password,user_register.picture,user_register.activated,role.role_name FROM user_register JOIN role on user_register.role_id = role.role_id  WHERE user_register.email = '$Email_Login' AND user_login_type = 'normal' ";
+        $sql = "SELECT user_register.user_id,user_register.first_name,user_register.email,user_register.password,user_register.picture,user_register.activated,role.role_name FROM user_register JOIN role on user_register.role_id = role.role_id  WHERE user_register.email = '$Email_Login' AND user_login_type = 'normal' ";
         return $this->connect_postgresdb->execute($sql);
     }
     /**
@@ -221,7 +221,7 @@ class User_model extends Model
      */
     public function Check_User_Google_Login($user_email_address)
     {
-        $sql = "SELECT user_register.first_name,user_register.last_name,user_register.email,user_register.picture,user_register.activated,role.role_name FROM user_register JOIN role on user_register.role_id = role.role_id  WHERE user_register.email = '$user_email_address' AND user_login_type = 'google' ";
+        $sql = "SELECT user_register.user_id,user_register.first_name,user_register.last_name,user_register.email,user_register.picture,user_register.activated,role.role_name FROM user_register JOIN role on user_register.role_id = role.role_id  WHERE user_register.email = '$user_email_address' AND user_login_type = 'google' ";
         return $this->connect_postgresdb->execute($sql);
     }
 
@@ -231,7 +231,7 @@ class User_model extends Model
      */
     public function Check_User_Facebook_Login($user_email_address)
     {
-        $sql = "SELECT user_register.first_name,user_register.email,user_register.picture,user_register.activated,role.role_name FROM user_register JOIN role on user_register.role_id = role.role_id  WHERE user_register.email = '$user_email_address' AND user_login_type = 'facebook'";
+        $sql = "SELECT user_register.user_id,user_register.first_name,user_register.email,user_register.picture,user_register.activated,role.role_name FROM user_register JOIN role on user_register.role_id = role.role_id  WHERE user_register.email = '$user_email_address' AND user_login_type = 'facebook'";
         return $this->connect_postgresdb->execute($sql);
     }
 

@@ -43,6 +43,8 @@
 		<!-- <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css"> -->
 		<script src="<?php echo base_url('assets/VideoPlayer/plyr.js'); ?>"></script>
 		<link rel="preload" href="<?php echo base_url('assets/VideoPlayer/plyr.css'); ?>" as="style" onload="this.rel='stylesheet'">
+		<link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.svg">
+
 	</head>
 
 	<?php
@@ -220,7 +222,10 @@
 						$count++;
 						echo $row['video_id'] . " " . $row['video_name'] . " " . $row['video_link'];
 						echo "<br>";
-						echo "<video id='player$count' playsinline controls data-poster=''><source src='" . base_url('/public/upload/' . $row['video_link']) . "' type='video/webm'></video>";
+						echo "<video id='player$count' playsinline controls data-poster=''>
+						<source src='https://www.googleapis.com/drive/v3/files/" . $row['video_link'] . "?alt=media&key=AIzaSyBUIxrlSOYtQP8c9vkX4_twLMFPOm0iDUs' type='video/mp4'>
+						</video>";
+
 					?>
 						<script>
 							const player<?php echo $count ?> = new Plyr('#player<?php echo $count ?>');
@@ -228,11 +233,62 @@
 					<?php
 					endforeach;
 					?>
-
-
 				</div>
 
+
 			</div>
+
+			<br>
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+			<div class="container">
+				<div class="panel panel-default">
+					<div class="panel-heading">Bootstrap Jquery Add More Field Example</div>
+					<div class="panel-body">
+
+
+						<form action="action.php">
+							<div class="input-group control-group after-add-more">
+								<input type="text" name="addmore[]" class="form-control" placeholder="Enter Name Here">
+								<div class="input-group-btn">
+									<button class="btn btn-success add-more" type="button"><i class="glyphicon glyphicon-plus"></i> Add</button>
+								</div>
+
+							</div>
+						</form>
+						<!-- Copy Fields -->
+						<div class="copy hide">
+							<div class="control-group input-group" style="margin-top:10px">
+								<input type="text" name="addmore[]" class="form-control" placeholder="Enter Name Here">
+
+								<div class="input-group-btn">
+									<button class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript">
+				$(document).ready(function() {
+
+
+					$(".add-more").click(function() {
+						var html = $(".copy").html();
+						$(".after-add-more").after(html);
+					});
+
+
+					$("body").on("click", ".remove", function() {
+						$(this).parents(".control-group").remove();
+					});
+
+
+				});
+			</script>
+
+
 
 			<!-- /.content -->
 		</div>
@@ -340,19 +396,3 @@
 	<!-- ./wrapper -->
 
 	<!-- REQUIRED SCRIPTS -->
-
-	<!-- jQuery -->
-	<script src="<?php echo base_url('plugins/jquery/jquery.min.js'); ?>"></script>
-	<!-- Bootstrap 4 -->
-	<script src="<?php echo base_url('plugins/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
-	<!-- AdminLTE App -->
-	<script src="<?php echo base_url('dist2/js/adminlte.min.js'); ?>"></script>
-
-	<!-- Waypoints -->
-	<script src="<?php echo base_url('assets/course/js/jquery.waypoints.min.js'); ?>"></script>
-
-	<!-- Flexslider -->
-	<script src="<?php echo base_url('assets/course/js/jquery.flexslider-min.js'); ?>"></script>
-
-	<!-- Main -->
-	<script src="<?php echo base_url('assets/course/js/main.js'); ?>"></script>
