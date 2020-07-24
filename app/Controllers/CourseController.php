@@ -98,14 +98,16 @@ class CourseController extends BaseController
     public function Upload_Video()
     {
         $model = new Course_model();
-        $file = $this->request->getFile('file');
+        //$file = $this->request->getFile('file');
+        $file = $_FILES;
         $storage = new StorageClient();
         $bucket = $storage->bucket('workgress');
-        $bucket->upload($file, [
-            'name' => $file->getClientName()
+        $content = file_get_contents($file['upload']['tmp_name']);
+        $bucket->upload($content, [
+            'name' => $file['upload']['name']
         ]);
-        $filename = $file->getClientName();
-        $filelink = "https://storage.cloud.google.com/workgress/" . $file->getClientName();
+        $filename = $file['upload']['name'];
+        $filelink = "https://storage.cloud.google.com/workgress/" . $file['upload']['name'];
         //echo $filename . " " . $filelink;
         $model->Upload_Video($filename, $filelink);
         return redirect()->to(base_url('test55'));
