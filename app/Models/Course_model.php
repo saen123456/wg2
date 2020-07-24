@@ -40,7 +40,7 @@ class Course_model extends Model
     public function Upload_Video($filename, $filelink)
     {
         //echo $user_first_name;
-        $sql = "INSERT INTO video (video_name,video_link) VALUES('$filename','$filelink')";
+        $sql = "INSERT INTO video (video_name,video_link) VALUES ('$filename','$filelink')";
         $this->connect_postgresdb->execute($sql); //จะทำการ Insert ข้อมูลเข้า ฐานข้อมูล
     }
     public function Insert_Course($course_name, $category_course_id, $course_description, $User_id)
