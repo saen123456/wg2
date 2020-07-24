@@ -153,7 +153,8 @@ class CurlFactory implements CurlFactoryInterface
         $factory->release($easy);
 
         // Retry when nothing is present or when curl failed to rewind.
-        if (empty($easy->options['_err_message'])
+        if (
+            empty($easy->options['_err_message'])
             && (!$easy->errno || $easy->errno == 65)
         ) {
             return self::retryFailedRewind($handler, $easy, $ctx);
@@ -258,12 +259,10 @@ class CurlFactory implements CurlFactoryInterface
             }
         } elseif ($method === 'HEAD') {
             $conf[\CURLOPT_NOBODY] = true;
-            unset(
-                $conf[\CURLOPT_WRITEFUNCTION],
-                $conf[\CURLOPT_READFUNCTION],
-                $conf[\CURLOPT_FILE],
-                $conf[\CURLOPT_INFILE]
-            );
+            unset($conf[\CURLOPT_WRITEFUNCTION],
+            $conf[\CURLOPT_READFUNCTION],
+            $conf[\CURLOPT_FILE],
+            $conf[\CURLOPT_INFILE]);
         }
     }
 
@@ -367,11 +366,9 @@ class CurlFactory implements CurlFactoryInterface
                     // If not, it's probably a file, or a link to a file, so use CURLOPT_CAINFO.
                     if (
                         \is_dir($options['verify']) ||
-                        (
-                            \is_link($options['verify']) === true &&
+                        (\is_link($options['verify']) === true &&
                             ($verifyLink = \readlink($options['verify'])) !== false &&
-                            \is_dir($verifyLink)
-                        )
+                            \is_dir($verifyLink))
                     ) {
                         $conf[\CURLOPT_CAPATH] = $options['verify'];
                     } else {
@@ -446,7 +443,8 @@ class CurlFactory implements CurlFactoryInterface
                 $scheme = $easy->request->getUri()->getScheme();
                 if (isset($options['proxy'][$scheme])) {
                     $host = $easy->request->getUri()->getHost();
-                    if (!isset($options['proxy']['no']) ||
+                    if (
+                        !isset($options['proxy']['no']) ||
                         !Utils::isHostInNoProxy($host, $options['proxy']['no'])
                     ) {
                         $conf[\CURLOPT_PROXY] = $options['proxy'][$scheme];

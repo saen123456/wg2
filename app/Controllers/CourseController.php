@@ -12,7 +12,7 @@ use Google\Cloud\Storage\StorageClient;
 class CourseController extends BaseController
 {
     protected $session;
-    private $storage;
+
     public function __construct()
     {
         $this->session = \Config\Services::session();
@@ -149,26 +149,33 @@ class CourseController extends BaseController
         return redirect()->to(base_url('test55'));
     }*/
 
-    public function Create_Bucket()
-    {
-        putenv("GOOGLE_APPLICATION_CREDENTIALS=workgress.json");
+    // public function Create_Bucket()
+    // {
+    //     putenv("GOOGLE_APPLICATION_CREDENTIALS=workgress.json");
 
-        # Your Google Cloud Platform project ID
-        $projectId = 'workgress';
-        # Instantiates a client
-        $this->storage = new StorageClient([
-            'projectId' => $projectId
-        ]);
+    //     # Your Google Cloud Platform project ID
+    //     $projectId = 'workgress';
+    //     # Instantiates a client
+    //     $this->storage = new StorageClient([
+    //         'projectId' => $projectId
+    //     ]);
 
-        # The name for the new bucket
-        $bucketName = 'workgress';
+    //     # The name for the new bucket
+    //     $bucketName = 'workgress';
 
-        # Creates the new bucket
-        $bucket = $this->storage->createBucket($bucketName);
+    //     # Creates the new bucket
+    //     $bucket = $this->storage->createBucket($bucketName);
 
-        echo 'Bucket ' . $bucket->name() . ' created.';
-    }
+    //     echo 'Bucket ' . $bucket->name() . ' created.';
+    // }
     public function Upload_Video()
     {
+        set_time_limit(0);
+        $file = $this->request->getFile('file');
+        $storage = new StorageClient();
+        // $bucket = $storage->bucket('workgress');
+        // $object = $bucket->upload($file, [
+        //     'name' => $file->getClientName()
+        // ]);
     }
 }
