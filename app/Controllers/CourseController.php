@@ -56,7 +56,7 @@ class CourseController extends BaseController
         $msg = '&nbsp&nbsp&nbsp&nbsp&nbspสร้างคอร์สเรียบร้อยแล้ว&nbsp&nbsp&nbsp&nbsp&nbsp';
         return redirect()->to(base_url('course'))->with('correct', $msg);
     }
-    public function Upload_Video()
+    /*public function Upload_Video()
     {
 
         $model = new Course_model();
@@ -70,7 +70,7 @@ class CourseController extends BaseController
             //$model->Upload_Video($title, $file_random);
             echo "upload success";
         }
-    }
+    }*/
 
 
     // public function Create_Bucket()
@@ -92,7 +92,7 @@ class CourseController extends BaseController
 
     //     echo 'Bucket ' . $bucket->name() . ' created.';
     // }
-    /*public function Upload_Video()
+    public function Upload_Video()
     {
         $model = new Course_model();
 
@@ -111,5 +111,5 @@ class CourseController extends BaseController
         $model->Upload_Video($file_name, $filelink);
         echo "upload success";
         //return redirect()->to(base_url('test55'));
-    }*/
+    }
 }
