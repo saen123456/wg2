@@ -259,8 +259,11 @@ endif
 										success: function() {
 											$('#loader-icon').hide();
 											$('#targetLayer').show();
+											location.reload();
 										},
 										resetForm: true
+
+
 									});
 								}
 								return false;
