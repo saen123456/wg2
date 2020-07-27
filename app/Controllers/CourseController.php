@@ -65,7 +65,6 @@ class CourseController extends BaseController
         //echo $file->getClientName();
         if ($file->getSize() > 0) {
             $file_random = $file->getClientName();
-
             $file->move('./public/upload', $file_random);
             //$model->Upload_Video($title, $file_random);
             echo "upload success";
@@ -109,6 +108,7 @@ class CourseController extends BaseController
         $filelink = "https://storage.googleapis.com/workgress/" . $file['uploadFile']['name'];
         $model->Upload_Video($file_name, $filelink);
         echo "upload success";
+        $this->Test();
         //return redirect()->to(base_url('test55'));
     }
 }
