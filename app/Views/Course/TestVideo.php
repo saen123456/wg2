@@ -2,83 +2,81 @@
 <html>
 
 <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta http-equiv="x-ua-compatible" content="ie=edge">
-
-		<title>Workgress</title>
-		<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
-		<!-- Font Awesome Icons -->
-		<link rel="stylesheet" href="<?php echo base_url('plugins/fontawesome-free/css/all.min.css'); ?>">
-		<!-- Theme style -->
-		<link rel="stylesheet" href="<?php echo base_url('dist2/css/adminlte.min.css'); ?>">
-		<!-- Google Font: Source Sans Pro -->
-		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-		<link rel="stylesheet" href="<?php echo base_url('dist2/css/photo.css'); ?>" type="text/css" media="screen">
-		<link href="<?php echo base_url('dist2/css/landing-page1.css'); ?>" rel="stylesheet">
-		<link rel="stylesheet" href="<?php echo base_url('assets/css/dropdown.css'); ?>" type="text/css" media="screen">
-		<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css'>
+	<title>Workgress</title>
+	<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+	<!-- Font Awesome Icons -->
+	<link rel="stylesheet" href="<?php echo base_url('plugins/fontawesome-free/css/all.min.css'); ?>">
+	<!-- Theme style -->
+	<link rel="stylesheet" href="<?php echo base_url('dist2/css/adminlte.min.css'); ?>">
+	<!-- Google Font: Source Sans Pro -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+	<link rel="stylesheet" href="<?php echo base_url('dist2/css/photo.css'); ?>" type="text/css" media="screen">
+	<link href="<?php echo base_url('dist2/css/landing-page1.css'); ?>" rel="stylesheet">
+	<link rel="stylesheet" href="<?php echo base_url('assets/css/dropdown.css'); ?>" type="text/css" media="screen">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css'>
 
 
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="<?php echo base_url('assets/course/css/animate.css'); ?>">
 
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="<?php echo base_url('assets/course/css/style.css'); ?>">
 
-		<!-- Animate.css -->
-		<link rel="stylesheet" href="<?php echo base_url('assets/course/css/animate.css'); ?>">
+	<!-- Modernizr JS -->
+	<script src="<?php echo base_url('assets/course/js/modernizr-2.6.2.min.js'); ?>"></script>
 
-		<!-- Theme style  -->
-		<link rel="stylesheet" href="<?php echo base_url('assets/course/css/style.css'); ?>">
+	<link rel="preload" href="<?php echo base_url('assets/css/footer.css'); ?>" as="style" onload="this.rel='stylesheet'">
 
-		<!-- Modernizr JS -->
-		<script src="<?php echo base_url('assets/course/js/modernizr-2.6.2.min.js'); ?>"></script>
+	<!-- Css player video -->
+	<!-- <script src="https://cdn.plyr.io/3.6.2/plyr.js"></script> -->
+	<!-- <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css"> -->
+	<script src="<?php echo base_url('assets/VideoPlayer/plyr.js'); ?>"></script>
+	<link rel="preload" href="<?php echo base_url('assets/VideoPlayer/plyr.css'); ?>" as="style" onload="this.rel='stylesheet'">
 
-		<link rel="preload" href="<?php echo base_url('assets/css/footer.css'); ?>" as="style" onload="this.rel='stylesheet'">
+	<!-- progress bar  -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="http://oss.maxcdn.com/jquery.form/3.50/jquery.form.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 
-		<!-- Css player video -->
-		<!-- <script src="https://cdn.plyr.io/3.6.2/plyr.js"></script> -->
-		<!-- <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css"> -->
-		<script src="<?php echo base_url('assets/VideoPlayer/plyr.js'); ?>"></script>
-		<link rel="preload" href="<?php echo base_url('assets/VideoPlayer/plyr.css'); ?>" as="style" onload="this.rel='stylesheet'">
+</head>
 
-		<!-- progress bar  -->
-		<link rel="stylesheet" href="<?php echo base_url('assets/css/progressbar.css'); ?>">
+<?php
+$this->session = \Config\Services::session();
+if ($this->session->get("Role_name") == 'student') {
+	$role = 'นักเรียน';
+} else if ($this->session->get("Role_name") == 'teacher') {
+	$role = 'คุณครู';
+} else if ($this->session->get("Role_name") == 'admin') {
+	$role = 'ผู้ดูแล';
+}
 
-	</head>
-
-	<?php
-	$this->session = \Config\Services::session();
-	if ($this->session->get("Role_name") == 'student') {
-		$role = 'นักเรียน';
-	} else if ($this->session->get("Role_name") == 'teacher') {
-		$role = 'คุณครู';
-	} else if ($this->session->get("Role_name") == 'admin') {
-		$role = 'ผู้ดูแล';
-	}
-
-	if (session('correct')) : ?>
-		<div class="alert alert-success" role="alert">
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<strong>Workgress!</strong> <?php echo session('correct') ?>
-		</div>
-	<?php
-	elseif (session('incorrect')) : ?>
-		<div class="alert alert-warning" role="alert">
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<strong>Workgress!</strong> <?php echo session('incorrect') ?>
-		</div>
-	<?php
-	elseif (session('warning')) : ?>
-		<div class="alert alert-warning" role="alert">
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<strong>Workgress!</strong> <?php echo session('warning') ?>
-		</div>
-	<?php
-	endif
-	?>
+if (session('correct')) : ?>
+	<div class="alert alert-success" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<strong>Workgress!</strong> <?php echo session('correct') ?>
+	</div>
+<?php
+elseif (session('incorrect')) : ?>
+	<div class="alert alert-warning" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<strong>Workgress!</strong> <?php echo session('incorrect') ?>
+	</div>
+<?php
+elseif (session('warning')) : ?>
+	<div class="alert alert-warning" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<strong>Workgress!</strong> <?php echo session('warning') ?>
+	</div>
+<?php
+endif
+?>
 
 <body class="hold-transition layout-top-nav">
 	<div class="wrapper">
@@ -210,20 +208,65 @@
 			<div class="overlay"></div>
 			<div class="container"><br><br><br><br>
 				<div style="text-align:center;">
-					<form action="<?= site_url('/CourseController/Upload_Video') ?>" enctype="multipart/form-data" method="post">
-						<label>Title : </label>
-						<input type="text" name="title">
+
+
+					<!-- <form method="post" action="<?= site_url('/CourseController/Upload_Video') ?>" enctype="multipart/form-data">
 						<label>File : </label>
 						<input type="file" name="file">
-						<input type="submit" value="ยืนยัน">
-					</form><br>
-					<div id="bararea">
-						<div id="bar"></div>
+						<button>Upload</button>
+					</form><br> -->
+
+					<br />
+					<h3 align="center">Ajax File Upload Progress Bar using PHP JQuery</h3>
+					<br />
+					<div class="panel panel-default">
+						<div class="panel-heading"><b>Ajax File Upload Progress Bar using PHP JQuery</b></div>
+						<div class="panel-body">
+							<form id="uploadImage" action="<?= site_url('/CourseController/Upload_Video') ?>" method="post" enctype="multipart/form-data">
+								<div class="form-group">
+									<label>File Upload</label>
+									<input type="file" name="uploadFile" id="uploadFile" accept=".jpg, .png" />
+								</div>
+								<div class="form-group">
+									<input type="submit" id="uploadSubmit" value="Upload" class="btn btn-info" />
+								</div>
+								<div class="progress">
+									<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+								<div id="targetLayer" style="display:none;"></div>
+							</form>
+						</div>
 					</div>
-					<div id="percent"></div>
-					<div id="status"></div>
-
-
+					<script>
+						$(document).ready(function() {
+							$('#uploadImage').submit(function(event) {
+								if ($('#uploadFile').val()) {
+									event.preventDefault();
+									$('#loader-icon').show();
+									$('#targetLayer').hide();
+									$(this).ajaxSubmit({
+										target: '#targetLayer',
+										beforeSubmit: function() {
+											$('.progress-bar').width('50%');
+										},
+										uploadProgress: function(event, position, total, percentageComplete) {
+											$('.progress-bar').animate({
+												width: percentageComplete + '%'
+											}, {
+												duration: 1000
+											});
+										},
+										success: function() {
+											$('#loader-icon').hide();
+											$('#targetLayer').show();
+										},
+										resetForm: true
+									});
+								}
+								return false;
+							});
+						});
+					</script>
 					<?php
 					$count = 0;
 					foreach ($data as $row) :
@@ -247,32 +290,7 @@
 
 			</div>
 
-			<script type="text/javascript">
-				$(function() {
-					$(document).ready(function() {
-						var bar = $('#bar')
-						var percent = $('#percent');
-						var status = $('#status');
 
-						$('form').ajaxForm({
-							beforeSend: function() {
-								status.empty();
-								var percentVal = '0%';
-								bar.width(percentVal);
-								percent.html(percentVal);
-							},
-							uploadProgress: function(event, position, total, percentComplete) {
-								var percentVal = percentComplete + '%';
-								percent.html(percentVal);
-								bar.width(percentVal);
-							},
-							complete: function(xhr) {
-								status.html(xhr.responseText);
-							}
-						});
-					});
-				});
-			</script>
 
 
 
@@ -381,4 +399,6 @@
 	<!-- Content Wrapper. Contains page content -->
 	<!-- ./wrapper -->
 
-	<!-- REQUIRED SCRIPTS -->
+</body>
+
+</html>

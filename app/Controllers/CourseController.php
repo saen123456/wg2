@@ -58,17 +58,16 @@ class CourseController extends BaseController
     }
     /*public function Upload_Video()
     {
+
         $model = new Course_model();
-        $title = $this->request->getVar("title");
 
-        $file = $this->request->getFile('file');
-
+        $file = $this->request->getFile('uploadFile');
         //echo $file->getClientName();
         if ($file->getSize() > 0) {
             $file_random = $file->getClientName();
 
             $file->move('./public/upload', $file_random);
-            $model->Upload_Video($title, $file_random);
+            //$model->Upload_Video($title, $file_random);
             return redirect()->to(base_url('test55'));
         }
     }*/
