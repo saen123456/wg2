@@ -96,7 +96,6 @@ class CourseController extends BaseController
     {
         $model = new Course_model();
 
-        $model = new Course_model();
         $file = $_FILES;
         $storage = new StorageClient();
         $bucket = $storage->bucket('workgress');
