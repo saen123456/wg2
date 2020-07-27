@@ -3,9 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Course_model;
-use Google_Client;
-use Google_Service_Drive;
-use Google_Service_Drive_DriveFile;
+
 use Google\Cloud\Storage\StorageClient;
 
 
@@ -97,20 +95,22 @@ class CourseController extends BaseController
     // }
     public function Upload_Video()
     {
+
         $model = new Course_model();
-        //$file = $this->request->getFile('file');
         $file = $_FILES;
+
         $storage = new StorageClient();
-        $bucket = $storage->bucket('workgress');
+
+        /*$bucket = $storage->bucket('workgress');
         $content = file_get_contents($file['file']['tmp_name']);
+        $file_name = $file['file']['name'];
         $bucket->upload($content, [
-            'name' => $file['file']['name']
+            'name' => $file_name
         ]);
-        $filename = $file['file']['name'];
+
         $filelink = "https://storage.googleapis.com/workgress/" . $file['file']['name'];
-        //echo $filename . " " . $filelink;
-        $model->Upload_Video($filename, $filelink);
-        return redirect()->to(base_url('test55'));
+        $model->Upload_Video($file_name, $filelink);
+        return redirect()->to(base_url('test55'));*/
     }
     // public function Link_Video()
     // {

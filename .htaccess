@@ -1,6 +1,6 @@
 # Disable directory browsing
 Options All -Indexes
-
+php_value max_execution_time 3600
 # ----------------------------------------------------------------------
 # Rewrite engine
 # ----------------------------------------------------------------------
@@ -35,14 +35,17 @@ Options All -Indexes
 	# Ensure Authorization header is passed along
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+	php_value max_execution_time 3600
 </IfModule>
 
 <IfModule !mod_rewrite.c>
     # If we don't have mod_rewrite installed, all 404's
     # can be sent to index.php, and everything works as normal.
     ErrorDocument 404 index.php
+	php_value max_execution_time 3600
 </IfModule>
 
 # Disable server signature start
     ServerSignature Off
 # Disable server signature end
+
