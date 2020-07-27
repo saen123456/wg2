@@ -225,7 +225,7 @@ endif
 							<form id="uploadImage" action="<?= site_url('/CourseController/Upload_Video') ?>" method="post" enctype="multipart/form-data">
 								<div class="form-group">
 									<label>File Upload</label>
-									<input type="file" name="uploadFile" id="uploadFile" accept=".jpg, .png" />
+									<input type="file" name="uploadFile" id="uploadFile">
 								</div>
 								<div class="form-group">
 									<input type="submit" id="uploadSubmit" value="Upload" class="btn btn-info" />
