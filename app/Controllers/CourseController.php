@@ -22,7 +22,7 @@ class CourseController extends BaseController
         if ($this->session->get("Role_name") == 'teacher' || $this->session->get("Role_name") == 'admin') {
             echo view('Course/Course');
         } else {
-            echo view('home/HomePage');
+            echo view('login/HomePage');
         }
     }
     public function CreateCourse()
@@ -30,7 +30,7 @@ class CourseController extends BaseController
         if ($this->session->get("Role_name") == 'teacher' || $this->session->get("Role_name") == 'admin') {
             echo view('Course/CreateCourse');
         } else {
-            echo view('home/HomePage');
+            echo view('login/HomePage');
         }
     }
     /**** ส่วนของ View ****/
@@ -42,7 +42,7 @@ class CourseController extends BaseController
             $data['data'] = $model->Select_Video_Google_Drive();
             echo view('Course/TestVideo', $data);
         } else {
-            echo view('home/HomePage');
+            echo view('login/HomePage');
         }
     }
     public function Create_Course()
@@ -98,32 +98,21 @@ class CourseController extends BaseController
 
         $model = new Course_model();
         $file = $_FILES;
+        $projectId = 'workgress';
+        $storage = new StorageClient([
+            'projectId' => $projectId
+        ]);
 
-        $storage = new StorageClient();
-
-        /*$bucket = $storage->bucket('workgress');
+        $bucket = $storage->bucket('workgress');
         $content = file_get_contents($file['file']['tmp_name']);
         $file_name = $file['file']['name'];
+
         $bucket->upload($content, [
             'name' => $file_name
         ]);
 
         $filelink = "https://storage.googleapis.com/workgress/" . $file['file']['name'];
         $model->Upload_Video($file_name, $filelink);
-        return redirect()->to(base_url('test55'));*/
+        return redirect()->to(base_url('test55'));
     }
-    // public function Link_Video()
-    // {
-    //     $model = new Course_model();
-    //     $file = $this->request->getFile('file');
-    //     $storage = new StorageClient();
-    //     $bucket = $storage->bucket('workgress');
-    //     $object = $bucket->upload($file, [
-    //         'name' => $file->getClientName()
-    //     ]);
-    //     $filename = $file->getClientName();
-    //     $filelink = "https://storage.cloud.google.com/workgress/'" . $file->getClientName() . "'";
-    //     $model->Upload_Video($filename, $filelink);
-    //     return redirect()->to(base_url('test55'));
-    // }
 }

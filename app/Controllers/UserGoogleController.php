@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-namespace App\Controllers;
-
 use App\Models\User_model;
 use Google_Client;
 use Google_Service_Oauth2;

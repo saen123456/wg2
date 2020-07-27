@@ -44,6 +44,8 @@
 		<script src="<?php echo base_url('assets/VideoPlayer/plyr.js'); ?>"></script>
 		<link rel="preload" href="<?php echo base_url('assets/VideoPlayer/plyr.css'); ?>" as="style" onload="this.rel='stylesheet'">
 
+		<!-- progress bar  -->
+		<link rel="stylesheet" href="<?php echo base_url('assets/css/progressbar.css'); ?>">
 
 	</head>
 
@@ -215,6 +217,12 @@
 						<input type="file" name="file">
 						<input type="submit" value="ยืนยัน">
 					</form><br>
+					<div id="bararea">
+						<div id="bar"></div>
+					</div>
+					<div id="percent"></div>
+					<div id="status"></div>
+
 
 					<?php
 					$count = 0;
@@ -239,53 +247,30 @@
 
 			</div>
 
-			<br>
-			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-			<div class="container">
-				<div class="panel panel-default">
-					<div class="panel-heading">Bootstrap Jquery Add More Field Example</div>
-					<div class="panel-body">
-
-
-						<form action="action.php">
-							<div class="input-group control-group after-add-more">
-								<input type="text" name="addmore[]" class="form-control" placeholder="Enter Name Here">
-								<div class="input-group-btn">
-									<button class="btn btn-success add-more" type="button"><i class="glyphicon glyphicon-plus"></i> Add</button>
-								</div>
-
-							</div>
-						</form>
-						<!-- Copy Fields -->
-						<div class="copy hide">
-							<div class="control-group input-group" style="margin-top:10px">
-								<input type="text" name="addmore[]" class="form-control" placeholder="Enter Name Here">
-
-								<div class="input-group-btn">
-									<button class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
-
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 			<script type="text/javascript">
-				$(document).ready(function() {
+				$(function() {
+					$(document).ready(function() {
+						var bar = $('#bar')
+						var percent = $('#percent');
+						var status = $('#status');
 
-
-					$(".add-more").click(function() {
-						var html = $(".copy").html();
-						$(".after-add-more").after(html);
+						$('form').ajaxForm({
+							beforeSend: function() {
+								status.empty();
+								var percentVal = '0%';
+								bar.width(percentVal);
+								percent.html(percentVal);
+							},
+							uploadProgress: function(event, position, total, percentComplete) {
+								var percentVal = percentComplete + '%';
+								percent.html(percentVal);
+								bar.width(percentVal);
+							},
+							complete: function(xhr) {
+								status.html(xhr.responseText);
+							}
+						});
 					});
-
-
-					$("body").on("click", ".remove", function() {
-						$(this).parents(".control-group").remove();
-					});
-
-
 				});
 			</script>
 
