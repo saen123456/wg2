@@ -94,14 +94,13 @@ class CourseController extends BaseController
     // }
     public function Upload_Video()
     {
-
         $model = new Course_model();
-        $file = $_FILES;
-        $projectId = 'workgress';
-        $storage = new StorageClient([
-            'projectId' => $projectId
-        ]);
 
+        $file = $this->request->getFile('uploadFile');
+        echo $file->getClientName();
+        /*$model = new Course_model();
+        $file = $_FILES;
+        $storage = new StorageClient();
         $bucket = $storage->bucket('workgress');
         $content = file_get_contents($file['uploadFile']['tmp_name']);
         $file_name = $file['uploadFile']['name'];
@@ -112,7 +111,7 @@ class CourseController extends BaseController
 
         $filelink = "https://storage.googleapis.com/workgress/" . $file['uploadFile']['name'];
         $model->Upload_Video($file_name, $filelink);
-        echo "upload success";
+        echo "upload success";*/
         //return redirect()->to(base_url('test55'));
-    /
+    }
 }
