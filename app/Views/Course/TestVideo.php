@@ -259,7 +259,7 @@ endif
 										success: function() {
 											$('#loader-icon').hide();
 											$('#targetLayer').show();
-											location.reload();
+											//location.reload();
 										},
 										resetForm: true
 
