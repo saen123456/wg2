@@ -58,11 +58,19 @@ color: gray;
         margin: 0 auto; /* Added */
         float: none; /* Added */
         margin-bottom: 10px; /* Added */ } 
+        .profilecourse{
+            bottom: 145px;
+            
+        }
 }
 @media screen and (max-width: 768px) {
     .card {
         margin: 0 auto; /* Added */
         float: none; /* Added */
         margin-bottom: 10px; /* Added */ } 
+        .profilecourse{
+            bottom: 145px;
+            
+        }
 }
 
