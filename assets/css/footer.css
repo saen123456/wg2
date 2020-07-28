@@ -102,9 +102,12 @@
   @media (max-width: 768px) 
   {
     .footernew {
-        width: 80%;
+        width: 100%;
     }
     .footernew2 {
-        width: 80%;
+        width: 100%;
+    }
+    .line{
+      width: 70%;
     }
   }
