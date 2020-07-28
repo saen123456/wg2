@@ -31,7 +31,7 @@ class AdminController extends BaseController
             $this->Data = [
                 'Full_name' => $this->session->get("Full_name"),
                 'Role_name' => $this->session->get("Role_name"),
-                'Picture' => $this->session->get("Picture"),
+                'Picture' => $this->session->get("Picture"), 
             ];
             $this->session->set($this->Data);
             echo view('admin/dashboard', $data);

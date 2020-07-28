@@ -16,6 +16,10 @@ class CourseController extends BaseController
         $this->session = \Config\Services::session();
         $this->session->start();
     }
+    public function Show_Course()
+    {
+        echo view('Course/Show_Course');
+    }
     public function Add_Course()
     {
 

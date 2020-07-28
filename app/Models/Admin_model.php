@@ -48,7 +48,7 @@ class Admin_model extends Model
     public function show_user_all($id)
     {
         if ($id == null) {
-            $sql = "SELECT user_register.user_id,user_register.first_name,user_register.last_name,user_register.email,user_register.picture,user_register.activated,role.role_name,user_register.user_login_type FROM user_register JOIN role on user_register.role_id = role.role_id  order by user_id";
+            $sql = "SELECT user_register.user_id,user_register.first_name,user_register.last_name,user_register.email,user_register.picture,user_register.activated,role.role_name,user_register.user_login_type,user_register.create_date,user_register.update_date FROM user_register JOIN role on user_register.role_id = role.role_id  order by user_id";
             return $this->connect_postgresdb->execute($sql);
         } else {
             $sql = "SELECT * FROM user_register where user_id = $id ";
@@ -62,7 +62,7 @@ class Admin_model extends Model
     public function show_user_normal($id)
     {
         if ($id == null) {
-            $sql = "SELECT user_register.user_id,user_register.first_name,user_register.last_name,user_register.email,user_register.picture,user_register.activated,role.role_name,user_register.user_login_type FROM user_register JOIN role on user_register.role_id = role.role_id where user_login_type = 'normal' order by user_id";
+            $sql = "SELECT user_register.user_id,user_register.first_name,user_register.last_name,user_register.email,user_register.picture,user_register.activated,role.role_name,user_register.user_login_type,user_register.create_date,user_register.update_date FROM user_register JOIN role on user_register.role_id = role.role_id where user_login_type = 'normal' order by user_id";
             return $this->connect_postgresdb->execute($sql);
         } else {
             $sql = "SELECT * FROM user where user_id = $id ";

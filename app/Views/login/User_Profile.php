@@ -174,14 +174,14 @@
 						<?php
 						} else if ($this->session->get("Role_name") == 'admin') { ?>
 						<a class="dropdown-item" href="<?php echo base_url('/dashboard'); ?>">Dashboard</a>
-						<a class="dropdown-item" href="<?php echo base_url('/course'); ?>">เพิ่ม Course</a>
+						<a class="dropdown-item" href="<?php echo base_url('/course'); ?>">Course</a>
 						<?php
 						} else if ($this->session->get("Role_name") == 'teacher') { ?>
-						<a class="dropdown-item" href="<?php echo base_url('/course'); ?>">เพิ่ม Course</a>
+						<a class="dropdown-item" href="<?php echo base_url('/course'); ?>">Course</a>
 						<?php
 						}
 						?>
-						<a class="dropdown-item" href="<?php echo base_url('/profile'); ?>">My Course</a>
+			
 						<a class="dropdown-item" href="<?= site_url('/UserController/User_Logout') ?>">Log Out</a>
 					</div>
 					</div>

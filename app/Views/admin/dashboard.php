@@ -213,8 +213,6 @@ if ($this->session->get("Role_name") == 'student') {
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
                 <i class="fas fa-minus"></i></button>
-              <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-                <i class="fas fa-times"></i></button>
             </div>
           </div>
           <div class="card-body p-0">
@@ -263,7 +261,11 @@ if ($this->session->get("Role_name") == 'student') {
                       </a>
                       <br />
                       <small>
-                        Created 01.01.2019
+                        Created <?php echo $row['create_date'] ?>
+                      </small>
+                      <br/>
+                      <small>
+                        Updated <?php echo $row['update_date'] ?>
                       </small>
                     </td>
                     <td>

@@ -55,6 +55,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <link rel="preload" href="assets/css/footer.css" as="style" onload="this.rel='stylesheet'">
 
+  <!-- CSS Card Course -->
+  <link rel="preload" href="<?php echo base_url('assets/css/card.css'); ?>" as="style" onload="this.rel='stylesheet'">
+
 </head>
 
 <?php
@@ -136,7 +139,6 @@ endif
         <!-- SEARCH FORM -->
         <div class="container">
           <ul class="nav navbar-nav mx-auto">
-
             <form class="form-inline ml-1 ml-md-1">
               <div class="input-group">
                 <div class="inputlong">
@@ -201,7 +203,7 @@ endif
           </div>
         </div>
       </header>
-
+      <br><br><br><br>
 
       <!-- /.content-header -->
 
@@ -209,126 +211,283 @@ endif
       <div class="colorlib-loader"></div>
       <div class="colorlib-classes">
         <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-md-3 col-md-offset-2 text-center colorlib-heading animate-box">
-              <h2 style="font-family: Roboto;font-style: normal;font-weight: normal;">หลักสูตรยอดนิยม</h2>
-              <h3>
-                <svg width="38" height="2" viewBox="0 0 38 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="38" height="2" fill="black" />
-                </svg>
-              </h3>
-            </div>
+          <a href="#">
+            <div class="float-sm-right" style="font-family: Roboto;font-style: normal;font-weight: normal;font-size: 20px;line-height: 23px;color: #959595;">ดูทั้งหมด</div>
+          </a>
+          <div class="float-sm-left">
+            <h2 style="font-family: Roboto;font-style: normal;font-weight: normal;">หลักสูตรยอดนิยม</h2>
+          </div>
+
+
+          <div class="col-md-1 col-md-offset-2 text-center colorlib-heading animate-box">
+            <h3>
+              <svg width="38" height="2" viewBox="0 0 38 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="38" height="2" fill="black" />
+              </svg>
+            </h3>
           </div>
 
           <div class="row">
             <div class="col-md-3 animate-box">
-              <div class="classes">
-                <div class="classes-img" style="background-image: url(assets/course/images/classes-1.jpg);">
-                  <span class="price text-center"><small>$450</small></span>
-                </div>
-                <div class="desc">
-                  <h3><a href="#">Developing Mobile Apps</a></h3>
-                  <p>Pointing has no control about the blind texts it is an almost unorthographic life</p>
-                  <p><a href="#" class="btn-learn">Learn More <i class="icon-arrow-right3"></i></a></p>
-                </div>
+              <div class="card" style="width:268px;">
+                <ul class="list-group list-group-flush">
+                  <img class="card-img-top" src="<?php echo base_url('assets/img/course1.png'); ?>" alt="Card image">
+                  <div class="profilecourse">
+                    <img src="<?php echo base_url('assets/img/profilecourse.png'); ?>" width="61px" height="61px" class="rounded-circle">
+                  </div>
+                  <br>
+                  <div class="card-body">
+                    <div class="font-titlecourse">
+                      Database : Practical PostgreSQL
+                    </div>
+                    <div class="font-ownercourse">Pipat Angkaew</div>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <li class="list-group-item">
+
+                      <div class="font-coursecomment">
+                        <i class="fa fa-users" aria-hidden="true"> 1273</i>
+                        <i class="fa fa-comments" aria-hidden="true"> 3</i>
+                      </div>
+
+                      <div class="font-courseprice">THB 600</div>
+                    </li>
+                  </div>
+                </ul>
               </div>
             </div>
 
             <div class="col-md-3 animate-box">
-              <div class="classes">
-                <div class="classes-img" style="background-image: url(assets/course/images/classes-2.jpg);">
-                  <span class="price text-center"><small>$450</small></span>
-                </div>
-                <div class="desc">
-                  <h3><a href="#">Convert PSD to HTML</a></h3>
-                  <p>Pointing has no control about the blind texts it is an almost unorthographic life</p>
-                  <p><a href="#" class="btn-learn">Learn More <i class="icon-arrow-right3"></i></a></p>
-                </div>
+              <div class="card" style="width:268px;">
+                <ul class="list-group list-group-flush">
+                  <img class="card-img-top" src="<?php echo base_url('assets/img/course1.png'); ?>" alt="Card image">
+                  <div class="profilecourse">
+                    <img src="<?php echo base_url('assets/img/profilecourse.png'); ?>" width="61px" height="61px" class="rounded-circle">
+                  </div>
+                  <br>
+                  <div class="card-body">
+                    <div class="font-titlecourse">
+                      Database : Practical PostgreSQL
+                    </div>
+                    <div class="font-ownercourse">Pipat Angkaew</div>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <li class="list-group-item">
+
+                      <div class="font-coursecomment">
+                        <i class="fa fa-users" aria-hidden="true"> 1273</i>
+                        <i class="fa fa-comments" aria-hidden="true"> 3</i>
+                      </div>
+
+                      <div class="font-courseprice">THB 600</div>
+                    </li>
+                  </div>
+                </ul>
               </div>
             </div>
 
             <div class="col-md-3 animate-box">
-              <div class="classes">
-                <div class="classes-img" style="background-image: url(assets/course/images/classes-3.jpg);">
-                  <span class="price text-center"><small>$450</small></span>
-                </div>
-                <div class="desc">
-                  <h3><a href="#">Convert HTML to WordPress</a></h3>
-                  <p>Pointing has no control about the blind texts it is an almost unorthographic life</p>
-                  <p><a href="#" class="btn-learn">Learn More <i class="icon-arrow-right3"></i></a></p>
-                </div>
+              <div class="card" style="width:268px;">
+                <ul class="list-group list-group-flush">
+                  <img class="card-img-top" src="<?php echo base_url('assets/img/course1.png'); ?>" alt="Card image">
+                  <div class="profilecourse">
+                    <img src="<?php echo base_url('assets/img/profilecourse.png'); ?>" width="61px" height="61px" class="rounded-circle">
+                  </div>
+                  <br>
+                  <div class="card-body">
+                    <div class="font-titlecourse">
+                      Database : Practical PostgreSQL
+                    </div>
+                    <div class="font-ownercourse">Pipat Angkaew</div>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <li class="list-group-item">
+
+                      <div class="font-coursecomment">
+                        <i class="fa fa-users" aria-hidden="true"> 1273</i>
+                        <i class="fa fa-comments" aria-hidden="true"> 3</i>
+                      </div>
+
+                      <div class="font-courseprice">THB 600</div>
+                    </li>
+                  </div>
+                </ul>
               </div>
             </div>
 
             <div class="col-md-3 animate-box">
-              <div class="classes">
-                <div class="classes-img" style="background-image: url(assets/course/images/classes-4.jpg);">
-                  <span class="price text-center"><small>$450</small></span>
-                </div>
-                <div class="desc">
-                  <h3><a href="#">Developing Mobile Apps</a></h3>
-                  <p>Pointing has no control about the blind texts it is an almost unorthographic life</p>
-                  <p><a href="#" class="btn-learn">Learn More <i class="icon-arrow-right3"></i></a></p>
-                </div>
+              <div class="card" style="width:268px;">
+                <ul class="list-group list-group-flush">
+                  <img class="card-img-top" src="<?php echo base_url('assets/img/course1.png'); ?>" alt="Card image">
+                  <div class="profilecourse">
+                    <img src="<?php echo base_url('assets/img/profilecourse.png'); ?>" width="61px" height="61px" class="rounded-circle">
+                  </div>
+                  <br>
+                  <div class="card-body">
+                    <div class="font-titlecourse">
+                      Database : Practical PostgreSQL
+                    </div>
+                    <div class="font-ownercourse">Pipat Angkaew</div>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <li class="list-group-item">
+
+                      <div class="font-coursecomment">
+                        <i class="fa fa-users" aria-hidden="true"> 1273</i>
+                        <i class="fa fa-comments" aria-hidden="true"> 3</i>
+                      </div>
+
+                      <div class="font-courseprice">THB 600</div>
+                    </li>
+                  </div>
+                </ul>
               </div>
             </div>
 
             <div class="col-md-3 animate-box">
-              <div class="classes">
-                <div class="classes-img" style="background-image: url(assets/course/images/classes-5.jpg);">
-                  <span class="price text-center"><small>$450</small></span>
-                </div>
-                <div class="desc">
-                  <h3><a href="#">Learned Smoke Effects</a></h3>
-                  <p>Pointing has no control about the blind texts it is an almost unorthographic life</p>
-                  <p><a href="#" class="btn-learn">Learn More <i class="icon-arrow-right3"></i></a></p>
-                </div>
+              <div class="card" style="width:268px;">
+                <ul class="list-group list-group-flush">
+                  <img class="card-img-top" src="<?php echo base_url('assets/img/course1.png'); ?>" alt="Card image">
+                  <div class="profilecourse">
+                    <img src="<?php echo base_url('assets/img/profilecourse.png'); ?>" width="61px" height="61px" class="rounded-circle">
+                  </div>
+                  <br>
+                  <div class="card-body">
+                    <div class="font-titlecourse">
+                      Database : Practical PostgreSQL
+                    </div>
+                    <div class="font-ownercourse">Pipat Angkaew</div>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <li class="list-group-item">
+
+                      <div class="font-coursecomment">
+                        <i class="fa fa-users" aria-hidden="true"> 1273</i>
+                        <i class="fa fa-comments" aria-hidden="true"> 3</i>
+                      </div>
+
+                      <div class="font-courseprice">THB 600</div>
+                    </li>
+                  </div>
+                </ul>
               </div>
             </div>
 
             <div class="col-md-3 animate-box">
-              <div class="classes">
-                <div class="classes-img" style="background-image: url(assets/course/images/classes-6.jpg);">
-                  <span class="price text-center"><small>$450</small></span>
-                </div>
-                <div class="desc">
-                  <h3><a href="#">Convert HTML to WordPress</a></h3>
-                  <p>Pointing has no control about the blind texts it is an almost unorthographic life</p>
-                  <p><a href="#" class="btn-learn">Learn More <i class="icon-arrow-right3"></i></a></p>
-                </div>
+              <div class="card" style="width:268px;">
+                <ul class="list-group list-group-flush">
+                  <img class="card-img-top" src="<?php echo base_url('assets/img/course1.png'); ?>" alt="Card image">
+                  <div class="profilecourse">
+                    <img src="<?php echo base_url('assets/img/profilecourse.png'); ?>" width="61px" height="61px" class="rounded-circle">
+                  </div>
+                  <br>
+                  <div class="card-body">
+                    <div class="font-titlecourse">
+                      Database : Practical PostgreSQL
+                    </div>
+                    <div class="font-ownercourse">Pipat Angkaew</div>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <li class="list-group-item">
+
+                      <div class="font-coursecomment">
+                        <i class="fa fa-users" aria-hidden="true"> 1273</i>
+                        <i class="fa fa-comments" aria-hidden="true"> 3</i>
+                      </div>
+
+                      <div class="font-courseprice">THB 600</div>
+                    </li>
+                  </div>
+                </ul>
               </div>
             </div>
 
             <div class="col-md-3 animate-box">
-              <div class="classes">
-                <div class="classes-img" style="background-image: url(assets/course/images/classes-6.jpg);">
-                  <span class="price text-center"><small>$450</small></span>
-                </div>
-                <div class="desc">
-                  <h3><a href="#">Convert HTML to WordPress</a></h3>
-                  <p>Pointing has no control about the blind texts it is an almost unorthographic life</p>
-                  <p><a href="#" class="btn-learn">Learn More <i class="icon-arrow-right3"></i></a></p>
-                </div>
+              <div class="card" style="width:268px;">
+                <ul class="list-group list-group-flush">
+                  <img class="card-img-top" src="<?php echo base_url('assets/img/course1.png'); ?>" alt="Card image">
+                  <div class="profilecourse">
+                    <img src="<?php echo base_url('assets/img/profilecourse.png'); ?>" width="61px" height="61px" class="rounded-circle">
+                  </div>
+                  <br>
+                  <div class="card-body">
+                    <div class="font-titlecourse">
+                      Database : Practical PostgreSQL
+                    </div>
+                    <div class="font-ownercourse">Pipat Angkaew</div>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <li class="list-group-item">
+
+                      <div class="font-coursecomment">
+                        <i class="fa fa-users" aria-hidden="true"> 1273</i>
+                        <i class="fa fa-comments" aria-hidden="true"> 3</i>
+                      </div>
+
+                      <div class="font-courseprice">THB 600</div>
+                    </li>
+                  </div>
+                </ul>
               </div>
             </div>
 
             <div class="col-md-3 animate-box">
-              <div class="classes">
-                <div class="classes-img" style="background-image: url(assets/course/images/classes-6.jpg);">
-                  <span class="price text-center"><small>$450</small></span>
-                </div>
-                <div class="desc">
-                  <h3><a href="#">Convert HTML to WordPress</a></h3>
-                  <p>Pointing has no control about the blind texts it is an almost unorthographic life</p>
-                  <p><a href="#" class="btn-learn">Learn More <i class="icon-arrow-right3"></i></a></p>
-                </div>
+              <div class="card" style="width:268px;">
+                <ul class="list-group list-group-flush">
+                  <img class="card-img-top" src="<?php echo base_url('assets/img/course1.png'); ?>" alt="Card image">
+                  <div class="profilecourse">
+                    <img src="<?php echo base_url('assets/img/profilecourse.png'); ?>" width="61px" height="61px" class="rounded-circle">
+                  </div>
+                  <br>
+                  <div class="card-body">
+                    <div class="font-titlecourse">
+                      Database : Practical PostgreSQL
+                    </div>
+                    <div class="font-ownercourse">Pipat Angkaew</div>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <li class="list-group-item">
+
+                      <div class="font-coursecomment">
+                        <i class="fa fa-users" aria-hidden="true"> 1273</i>
+                        <i class="fa fa-comments" aria-hidden="true"> 3</i>
+                      </div>
+
+                      <div class="font-courseprice">THB 600</div>
+                    </li>
+                  </div>
+                </ul>
               </div>
             </div>
 
           </div>
         </div>
       </div>
-
+      <br><br><br>
       <div style="background-image: url(assets/img/bg3.png); background-size: 100%; height:501px;">
         <div class="overlay"></div>
         <div class="container"><br><br><br>
@@ -342,25 +501,166 @@ endif
           </div>
         </div>
 
+
+
         <!-- /.content -->
+
       </div>
       <!-- /.content-wrapper -->
 
-      <!-- Control Sidebar -->
-      <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-        <div class="p-3">
-          <h5>Profile</h5>
-          <p>Sidebar content</p>
-        </div>
-      </aside>
-      <!-- /.control-sidebar -->
+      <div class="footernew">
+        <br><br><br>
+        <div class="colorlib-classes">
+          <div class="container">
+            <a href="#">
+              <div class="float-sm-right" style="font-family: Roboto;font-style: normal;font-weight: normal;font-size: 20px;line-height: 23px;color: #959595;">ดูทั้งหมด</div>
+            </a>
+            <div class="float-sm-left">
+              <h2 style="font-family: Roboto;font-style: normal;font-weight: normal;">หลักสูตรใหม่</h2>
+            </div>
 
 
-      <footer class="main-footer">
-        <div class="footernew">
+            <div class="col-md-1 col-md-offset-2 text-center colorlib-heading animate-box">
+              <h3>
+                <svg width="38" height="2" viewBox="0 0 38 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="38" height="2" fill="black" />
+                </svg>
+              </h3>
+            </div>
+
+            <div class="row">
+              <div class="col-md-3 animate-box">
+                <div class="card" style="width:268px;">
+                  <ul class="list-group list-group-flush">
+                    <img class="card-img-top" src="<?php echo base_url('assets/img/course1.png'); ?>" alt="Card image">
+                    <div class="profilecourse">
+                      <img src="<?php echo base_url('assets/img/profilecourse.png'); ?>" width="61px" height="61px" class="rounded-circle">
+                    </div>
+                    <br>
+                    <div class="card-body">
+                      <div class="font-titlecourse">
+                        Database : Practical PostgreSQL
+                      </div>
+                      <div class="font-ownercourse">Pipat Angkaew</div>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <li class="list-group-item">
+
+                        <div class="font-coursecomment">
+                          <i class="fa fa-users" aria-hidden="true"> 1273</i>
+                          <i class="fa fa-comments" aria-hidden="true"> 3</i>
+                        </div>
+
+                        <div class="font-courseprice">THB 600</div>
+                      </li>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-md-3 animate-box">
+                <div class="card" style="width:268px;">
+                  <ul class="list-group list-group-flush">
+                    <img class="card-img-top" src="<?php echo base_url('assets/img/course1.png'); ?>" alt="Card image">
+                    <div class="profilecourse">
+                      <img src="<?php echo base_url('assets/img/profilecourse.png'); ?>" width="61px" height="61px" class="rounded-circle">
+                    </div>
+                    <br>
+                    <div class="card-body">
+                      <div class="font-titlecourse">
+                        Database : Practical PostgreSQL
+                      </div>
+                      <div class="font-ownercourse">Pipat Angkaew</div>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <li class="list-group-item">
+
+                        <div class="font-coursecomment">
+                          <i class="fa fa-users" aria-hidden="true"> 1273</i>
+                          <i class="fa fa-comments" aria-hidden="true"> 3</i>
+                        </div>
+
+                        <div class="font-courseprice">THB 600</div>
+                      </li>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-md-3 animate-box">
+                <div class="card" style="width:268px;">
+                  <ul class="list-group list-group-flush">
+                    <img class="card-img-top" src="<?php echo base_url('assets/img/course1.png'); ?>" alt="Card image">
+                    <div class="profilecourse">
+                      <img src="<?php echo base_url('assets/img/profilecourse.png'); ?>" width="61px" height="61px" class="rounded-circle">
+                    </div>
+                    <br>
+                    <div class="card-body">
+                      <div class="font-titlecourse">
+                        Database : Practical PostgreSQL
+                      </div>
+                      <div class="font-ownercourse">Pipat Angkaew</div>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <li class="list-group-item">
+
+                        <div class="font-coursecomment">
+                          <i class="fa fa-users" aria-hidden="true"> 1273</i>
+                          <i class="fa fa-comments" aria-hidden="true"> 3</i>
+                        </div>
+
+                        <div class="font-courseprice">THB 600</div>
+                      </li>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-md-3 animate-box">
+                <div class="card" style="width:268px;">
+                  <ul class="list-group list-group-flush">
+                    <img class="card-img-top" src="<?php echo base_url('assets/img/course1.png'); ?>" alt="Card image">
+                    <div class="profilecourse">
+                      <img src="<?php echo base_url('assets/img/profilecourse.png'); ?>" width="61px" height="61px" class="rounded-circle">
+                    </div>
+                    <br>
+                    <div class="card-body">
+                      <div class="font-titlecourse">
+                        Database : Practical PostgreSQL
+                      </div>
+                      <div class="font-ownercourse">Pipat Angkaew</div>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <li class="list-group-item">
+
+                        <div class="font-coursecomment">
+                          <i class="fa fa-users" aria-hidden="true"> 1273</i>
+                          <i class="fa fa-comments" aria-hidden="true"> 3</i>
+                        </div>
+
+                        <div class="font-courseprice">THB 600</div>
+                      </li>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
-      </footer>
+      </div>
 
       <!-- Main Footer -->
 
