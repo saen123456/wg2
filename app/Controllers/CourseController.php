@@ -20,6 +20,10 @@ class CourseController extends BaseController
     {
         echo view('Course/Show_Course');
     }
+    public function Category_Course()
+    {
+        echo view('Course/Category_Course');
+    }
     public function Add_Course()
     {
 

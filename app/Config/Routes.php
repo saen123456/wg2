@@ -55,6 +55,7 @@ $routes->get('/test55', 'CourseController::Test');
 $routes->get('/courses', 'CourseController::Show_Course');
 $routes->get('/course', 'CourseController::Add_Course');
 $routes->add('/course/createcourse', 'CourseController::CreateCourse');
+$routes->get('/alldevelopment', 'CourseController::Category_Course');
 /**
  * --------------------------------------------------------------------
  * Additional Routing

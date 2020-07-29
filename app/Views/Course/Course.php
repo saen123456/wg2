@@ -153,6 +153,27 @@
                                 </div>
                             </div>
                         </div>
+                        <br>
+                        <div class="container">
+                            <div class="content">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-2"><img src="<?php echo base_url('assets/img/dash_course_illustration.png'); ?>" width="120px" height="120px">
+                                        </div>
+                                        <div class="col-10">
+                                            <p>test</p>
+                                            <a href="#">
+                                                <div class="content-overlay"></div>
+                                                <div class="content-details fadeIn-bottom">
+                                                    <h3 class="content-text">แก้ไข / จัดการหลักสูตร </h3>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="container">
                             <div class="col-12">
                                 <div class="row justify-content-center">

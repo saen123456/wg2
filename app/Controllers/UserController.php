@@ -342,7 +342,7 @@ class UserController extends BaseController
                 ];
                 $this->session->set($this->Data);
                 return redirect()->to(base_url('homepage'));
-            } else if ($Email_Login == $Email && $Password_Login == $Password && $Activated == 1) {
+            } else if ($Email_Login == $Email && $Password_Login == $Password && $Activated == 1 && $Role_Name == 'teacher') {
                 $this->Data = [
                     'User_id' => $User_id,
                     'Full_name' => $Full_Name,
@@ -350,6 +350,7 @@ class UserController extends BaseController
                     'Email' => $Email,
                     'Picture' => $Picture,
                     'Type' => 'normal'
+
                 ];
                 $this->session->set($this->Data);
                 return redirect()->to(base_url('homepage'));
