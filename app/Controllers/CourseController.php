@@ -26,17 +26,27 @@ class CourseController extends BaseController
     }
     public function Add_Course()
     {
-
         if ($this->session->get("Role_name") == 'teacher' || $this->session->get("Role_name") == 'admin') {
-            echo view('Course/Course');
+            $model = new Course_model();
+            $id =  $this->session->get("User_id");
+            $data['data'] = $model->Select_Course($id);
+            echo view('Course/Course', $data);
         } else {
-            echo view('login/HomePage');
+            echo view('home/HomePage');
         }
     }
     public function CreateCourse()
     {
         if ($this->session->get("Role_name") == 'teacher' || $this->session->get("Role_name") == 'admin') {
             echo view('Course/CreateCourse');
+        } else {
+            echo view('login/HomePage');
+        }
+    }
+    public function CreateCourseStep2()
+    {
+        if ($this->session->get("Role_name") == 'teacher' || $this->session->get("Role_name") == 'admin') {
+            echo view('Course/CreateCourseStep2');
         } else {
             echo view('login/HomePage');
         }
@@ -61,12 +71,12 @@ class CourseController extends BaseController
         $User_id = $this->session->get("User_id");
         $model_course = new Course_model();
         $model_course->Insert_Course($course_name, $category_course_id, $course_description, $User_id);
-        $msg = '&nbsp&nbsp&nbsp&nbsp&nbspสร้างคอร์สเรียบร้อยแล้ว&nbsp&nbsp&nbsp&nbsp&nbsp';
-        return redirect()->to(base_url('course'))->with('correct', $msg);
+        $course_id =  $model_course->Select_newcourse($User_id);
+
+        return redirect()->to(base_url('course/createcourse-step2/' . $course_id));
     }
     /*public function Upload_Video()
     {
-
         $model = new Course_model();
 
         $file = $this->request->getFile('uploadFile');
@@ -99,6 +109,25 @@ class CourseController extends BaseController
 
     //     echo 'Bucket ' . $bucket->name() . ' created.';
     // }
+    public function Upload_Course()
+    {
+        $model = new Course_model();
+
+        $file = $_FILES;
+        $storage = new StorageClient();
+        $bucket = $storage->bucket('workgress');
+        $content = file_get_contents($file['uploadFile']['tmp_name']);
+        $file_name = $file['uploadFile']['name'];
+
+        $bucket->upload($content, [
+            'name' => $file_name
+        ]);
+
+        $filelink = "https://storage.googleapis.com/workgress/" . $file['uploadFile']['name'];
+        $model->Upload_Video($file_name, $filelink);
+        echo "upload success";
+        //return redirect()->to(base_url('test55'));
+    }
     public function Upload_Video()
     {
         $model = new Course_model();

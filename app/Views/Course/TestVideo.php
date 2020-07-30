@@ -262,8 +262,6 @@ endif
 											//location.reload();
 										},
 										resetForm: true
-
-
 									});
 								}
 								return false;

@@ -17,7 +17,7 @@
         <!-- Google Font: Source Sans Pro -->
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo base_url('dist2/css/photo.css'); ?>" type="text/css" media="screen">
-        <link href="dist2/css/landing-page1.css" rel="stylesheet">
+        <link href="<?php echo base_url('dist2/css/landing-page1.css'); ?>" type="text/css" media="screen" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo base_url('assets/css/dropdown.css'); ?>" type="text/css" media="screen">
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css'>
 
@@ -25,11 +25,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
-        <link rel="stylesheet" href="plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
-        <link rel="stylesheet" href="plugins/toastr/toastr.min.css">
-        <script src="plugins/sweetalert2/sweetalert2.min.js"></script>
-        <script src="plugins/toastr/toastr.min.js"></script>
 
         <!-- Animate.css -->
         <link rel="stylesheet" href="<?php echo base_url('assets/course/css/animate.css'); ?>">
@@ -153,27 +148,32 @@
                                 </div>
                             </div>
                         </div>
-                        <br>
-                        <div class="container">
-                            <div class="content">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-2"><img src="<?php echo base_url('assets/img/dash_course_illustration.png'); ?>" width="120px" height="120px">
-                                        </div>
-                                        <div class="col-10">
-                                            <p>test</p>
-                                            <a href="#">
-                                                <div class="content-overlay"></div>
-                                                <div class="content-details fadeIn-bottom">
-                                                    <h3 class="content-text">แก้ไข / จัดการหลักสูตร </h3>
-                                                </div>
-                                            </a>
+                        <?php
+                        foreach ($data as $row) :
+                        ?>
+                            <br>
+                            <div class="container">
+                                <div class="content_course">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-2"><img src="<?php echo base_url('assets/img/dash_course_illustration.png'); ?>" width="120px" height="120px">
+                                            </div>
+                                            <div class="col-10">
+                                                <b> : <?php echo $row['course_name'] ?></b>
+                                                <a href="<?= base_url('/course/createcourse-step2/' . $row['course_id']); ?>">
+                                                    <div class="content_course-overlay"></div>
+                                                    <div class="content_course-details fadeIn-bottom">
+                                                        <h3 class="content_course-text">แก้ไข / จัดการหลักสูตร </h3>
+                                                    </div>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
+                        <?php
+                        endforeach;
+                        ?>
                         <div class="container">
                             <div class="col-12">
                                 <div class="row justify-content-center">

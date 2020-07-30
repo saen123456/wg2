@@ -617,10 +617,10 @@ class UserController extends BaseController
         $Type = $this->session->get("Type");
 
         $Photo = $this->request->getFile('photo');
-        $Photo_Random_Name = $Photo->getRandomName();
 
         //echo $Photo->getClientName();
         if ($Photo->getSize() > 0) {
+            $Photo_Random_Name = $Photo->getRandomName();
             $upload_to = 'public/upload/';
 
             $image = \Config\Services::image()

@@ -52,4 +52,14 @@ class Course_model extends Model
         $sql2 = "INSERT INTO user_create_course (user_id,course_id) VALUES ($User_id,$count_course)";
         $this->connect_postgresdb->execute($sql2);
     }
+    public function Select_Course($id)
+    {
+        $sql = "SELECT * from course join user_create_course on course.course_id = user_create_course.course_id join user_register on user_register.user_id =  user_create_course.user_id where user_register.user_id = $id ";
+        return $this->connect_postgresdb->execute($sql);
+    }
+    public function Select_newcourse($id)
+    {
+        $sql = "SELECT max(course.course_id) from course join user_create_course on course.course_id = user_create_course.course_id join user_register on user_register.user_id =  user_create_course.user_id where user_register.user_id = $id ";
+        return $this->connect_postgresdb->getOne($sql);
+    }
 }

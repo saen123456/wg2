@@ -152,12 +152,12 @@
     box-shadow: 0 10px 16px 0 rgba(31, 31, 31, 0.8);
   }
   
-  .content {
+  .content_course {
     width: 100%;
     background-color: rgb(255, 255, 255);
     position: relative;
   }
-  .content .content-overlay {
+  .content_course .content_course-overlay {
     background: rgba(100, 100, 100, 0.7);
     position: absolute;
     width: 100%;
@@ -171,11 +171,11 @@
     -moz-transition: all 0.4s ease-in-out 0s;
     transition: all 0.4s ease-in-out 0s;
   }
-  .content:hover .content-overlay{
+  .content_course:hover .content_course-overlay{
     opacity: 0.7;
   }
 
-  .content-details {
+  .content_course-details {
     position: absolute;
     text-align: center;
     padding-left: 1em;
@@ -192,13 +192,13 @@
     transition: all 0.3s ease-in-out 0s;
   }
   
-  .content:hover .content-details{
+  .content_course:hover .content_course-details{
     top: 50%;
     left: 50%;
     opacity: 1;
   }
   
-  .content-details h3{
+  .content_course-details h3{
     color: #fff;
     font-weight: 500;
     letter-spacing: 0.15em;
@@ -206,7 +206,7 @@
     text-transform: uppercase;
   }
   
-  .content-details p{
+  .content_course-details p{
     color: rgb(69, 245, 69);
     font-size: medium;
   }
