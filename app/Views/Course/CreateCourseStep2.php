@@ -92,6 +92,9 @@
                                 <label for="ssn" class="form-label">SSN</label>
                                 <input type="text" name="ssn" id="ssn" />
                             </div>
+
+
+
                         </div>
                     </fieldset>
 
@@ -155,6 +158,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </fieldset>
 
                     <h3>การกำหนดราคา</h3>
@@ -174,7 +178,7 @@
                             </div>
                         </div>
                     </fieldset>
-                    
+
                     <h3>Set Financial Goals</h3>
                     <fieldset>
                         <h2>Set Financial Goals</h2>
