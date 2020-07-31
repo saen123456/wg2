@@ -262,6 +262,7 @@ class UserController extends BaseController
             $User_Data = $model->Check_User_Pass_Login($GetEmail);
 
             while ($User = $User_Data->fetchRow()) {
+                $User_id = $User['user_id'];
                 $Full_Name = $User['first_name'];
                 $Email = $User['email'];
                 $Password = $User['password'];
@@ -272,6 +273,7 @@ class UserController extends BaseController
                 $Role_Name = $User['role_name'];
             }
             $this->Data = [
+                'User_id' => $User_id,
                 'Full_name' => $Full_Name,
                 'Role_name' => $Role_Name,
                 'Email' => $Email,

@@ -57,7 +57,7 @@ $routes->get('/course', 'CourseController::Add_Course');
 $routes->add('/course/createcourse', 'CourseController::CreateCourse');
 $routes->get('/alldevelopment', 'CourseController::Category_Course');
 //Config-Course
-$routes->add('/course/createcourse-step2/(:any)', 'CourseController::CreateCourseStep2/$1');
+$routes->add('/course/manage/config/(:any)', 'CourseController::CreateCourseStep2/$1');
 /**
  * --------------------------------------------------------------------
  * Additional Routing
