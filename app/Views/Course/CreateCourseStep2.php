@@ -94,7 +94,6 @@
                             </div>
 
 
-
                         </div>
                     </fieldset>
 
@@ -162,58 +161,6 @@
                     </fieldset>
 
                     <h3>การกำหนดราคา</h3>
-                    <fieldset>
-                        <h2>Set Financial Goals</h2>
-                        <p class="desc">Set up your money limit to reach the future plan</p>
-                        <div class="fieldset-content">
-                            <div class="donate-us">
-                                <div class="price_slider ui-slider ui-slider-horizontal">
-                                    <div id="slider-margin"></div>
-                                    <p class="your-money">
-                                        Your money you can spend per month :
-                                        <span class="money" id="value-lower"></span>
-                                        <span class="money" id="value-upper"></span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
-
-                    <h3>Set Financial Goals</h3>
-                    <fieldset>
-                        <h2>Set Financial Goals</h2>
-                        <p class="desc">Set up your money limit to reach the future plan</p>
-                        <div class="fieldset-content">
-                            <div class="donate-us">
-                                <div class="price_slider ui-slider ui-slider-horizontal">
-                                    <div id="slider-margin"></div>
-                                    <p class="your-money">
-                                        Your money you can spend per month :
-                                        <span class="money" id="value-lower"></span>
-                                        <span class="money" id="value-upper"></span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
-                    <h3>Set Financial Goals</h3>
-                    <fieldset>
-                        <h2>Set Financial Goals</h2>
-                        <p class="desc">Set up your money limit to reach the future plan</p>
-                        <div class="fieldset-content">
-                            <div class="donate-us">
-                                <div class="price_slider ui-slider ui-slider-horizontal">
-                                    <div id="slider-margin"></div>
-                                    <p class="your-money">
-                                        Your money you can spend per month :
-                                        <span class="money" id="value-lower"></span>
-                                        <span class="money" id="value-upper"></span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
-                    <h3>Set Financial Goals</h3>
                     <fieldset>
                         <h2>Set Financial Goals</h2>
                         <p class="desc">Set up your money limit to reach the future plan</p>
