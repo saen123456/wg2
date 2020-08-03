@@ -153,10 +153,11 @@ class CourseController extends BaseController
             $filelink = "https://storage.googleapis.com/workgress/" . $file['uploadFile']['name'];
             $model->Upload_Video($file_name, $filelink);
             echo "upload success";
+            $file_name = null;
+            $filelink = null;
         } else {
             echo "something wrong";
         }
-
         //return redirect()->to(base_url('test55'));
     }
 }
