@@ -227,8 +227,6 @@ endif
 								</div>
 								<input type="file" name="uploadFile" class="form-control" />
 								<button class="btn btn-primary upload-image">Upload Image</button>
-
-
 							</form>
 						</div>
 					</div>
@@ -237,18 +235,17 @@ endif
 							var progressbar = $('.progress-bar');
 							$(".upload-image").click(function() {
 								$(".form-horizontal").ajaxForm({
-										target: '.preview',
-										beforeSend: function() {
-											$(".progress").css("display", "block");
-											progressbar.width('0%');
-											progressbar.text('0%');
-										},
-										uploadProgress: function(event, position, total, percentComplete) {
-											progressbar.width(percentComplete + '%');
-											progressbar.text(percentComplete + '%');
-										},
-									})
-									.submit();
+									beforeSend: function() {
+										$(".progress").css("display", "block");
+										progressbar.width('0%');
+										progressbar.text('0%');
+									},
+									uploadProgress: function(event, position, total, percentComplete) {
+										progressbar.width(percentComplete + '%');
+										progressbar.text(percentComplete + '%');
+									},
+								})
+
 							});
 						});
 					</script>
