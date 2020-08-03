@@ -141,6 +141,9 @@ class CourseController extends BaseController
     }*/
     public function Upload_Video()
     {
+        $file_name = null;
+        $filelink = null;
+
         $model = new Course_model();
 
         $file = $_FILES;
@@ -153,8 +156,6 @@ class CourseController extends BaseController
             $filelink = "https://storage.googleapis.com/workgress/" . $file['uploadFile']['name'];
             $model->Upload_Video($file_name, $filelink);
             echo "upload success";
-            $file_name = null;
-            $filelink = null;
         } else {
             echo "something wrong";
         }
