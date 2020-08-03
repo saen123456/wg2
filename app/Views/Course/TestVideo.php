@@ -203,11 +203,6 @@ endif
 
 
 			<!-- /.content-header -->
-			<script>
-				if (window.history.replaceState) {
-					window.history.replaceState(null, null, window.location.href);
-				}
-			</script>
 			<!-- Main content -->
 			<div class="overlay"></div>
 			<div class="container"><br><br><br><br>
@@ -227,6 +222,8 @@ endif
 								</div>
 								<input type="file" name="uploadFile" class="form-control" />
 								<button class="btn btn-primary upload-image">Upload Image</button>
+
+
 							</form>
 						</div>
 					</div>
@@ -235,6 +232,7 @@ endif
 							var progressbar = $('.progress-bar');
 							$(".upload-image").click(function() {
 								$(".form-horizontal").ajaxForm({
+									target: '.preview',
 									beforeSend: function() {
 										$(".progress").css("display", "block");
 										progressbar.width('0%');
