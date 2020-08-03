@@ -165,9 +165,7 @@ class CourseController extends BaseController
         $file = $_FILES;
         $storage = new StorageClient();
         $bucket = $storage->bucket('workgress');
-        $total = count($_FILES['uploadFile']['name']);
 
-        for ($i = 0; $i < $total; $i++) {
             $content = file_get_contents($file['uploadFile']['tmp_name']);
             $file_name = $file['uploadFile']['name'];
 
@@ -178,8 +176,7 @@ class CourseController extends BaseController
             } else {
                 echo "<div class='preview'>something wrong</div>";
             }
-            echo $i . "<br>";
-        }
+            
         //return redirect()->to(base_url('test55'));
     }
 }
