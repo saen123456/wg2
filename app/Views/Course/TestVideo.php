@@ -272,15 +272,12 @@ endif
 						<h2>PHP - File upload progress bar and percentage with jquery</h2>
 						<div style="border: 1px solid #a1a1a1;text-align: center;width: 500px;padding:30px;margin:0px auto">
 							<form action="<?= site_url('/CourseController/Upload_Video') ?>" enctype="multipart/form-data" class="form-horizontal" method="post">
-
-
 								<div class="preview"></div>
 								<div class="progress" style="display:none">
 									<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
 										0%
 									</div>
 								</div>
-
 								<input type="file" name="uploadFile" class="form-control" />
 								<button class="btn btn-primary upload-image">Upload Image</button>
 
