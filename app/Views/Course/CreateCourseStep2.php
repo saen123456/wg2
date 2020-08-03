@@ -14,8 +14,21 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/course/step2/css/style.css'); ?>" type="text/css" media="screen">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" rel="preconnect"></script>
-
-
+    <script src="https://cdn.tiny.cloud/1/js76qyi19edy15b7redb48ihbx9clxwbtiq6igcwwzog8lwf/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            toolbar: 'bold italic | bullist  numlist ',
+            menubar: false,
+            height: 150,
+            width: 680,
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount'
+            ],
+        });
+    </script>
 </head>
 
 
@@ -100,17 +113,21 @@
 
                     <h3>หน้าเริ่มต้นของหลักสูตร</h3>
                     <fieldset>
-                        <h2>Connect Bank Account</h2>
-                        <p class="desc">Please enter your infomation and proceed to next step so we can build your
-                            account</p>
+                        <h2>หน้าเริ่มต้นของหลักสูตร</h2>
+                        <div class="form-find">
+                            <p class="desc">Please enter your infomation and proceed to next step so we can build your
+                                account</p>
+                        </div>
                         <div class="fieldset-content">
                             <div class="form-group">
-                                <label for="find_bank" class="form-label">Find Your Bank</label>
-                                <div class="form-find">
-                                    <input type="text" name="find_bank" id="find_bank" placeholder="Ex. Techcombank" />
-                                    <input type="submit" value="Search" class="submit">
-                                    <span class="form-icon"><i class="zmdi zmdi-search"></i></span>
-                                </div>
+                                <label for="find_bank" class="form-label">ชื่อหลักสูตร</label>
+                                <input type="text" name="find_bank" id="find_bank" placeholder="ใส่ชื่อหลักสูตรของคุณ" />
+                                <label for="find_bank" class="form-label">คำอธิบายหลักสูตร</label>
+                                <textarea>
+                                        Welcome to TinyMCE!
+                                    </textarea>
+
+
                             </div>
                             <div class="choose-bank">
                                 <p class="choose-bank-desc">Or choose from these popular bank</p>
@@ -182,8 +199,6 @@
 
 
         </div>
-
-
 </body>
 <!-- JS -->
 <script src="<?php echo base_url('assets/course/step2/vendor2/jquery-validation/dist/jquery.validate.min.js'); ?>"></script>
