@@ -203,71 +203,18 @@ endif
 
 
 			<!-- /.content-header -->
-
+			<script>
+				if (window.history.replaceState) {
+					window.history.replaceState(null, null, window.location.href);
+				}
+			</script>
 			<!-- Main content -->
 			<div class="overlay"></div>
 			<div class="container"><br><br><br><br>
 				<div style="text-align:center;">
-
-
-					<!-- <form method="post" action="<?= site_url('/CourseController/Upload_Video') ?>" enctype="multipart/form-data">
-						<label>File : </label>
-						<input type="file" name="file">
-						<button>Upload</button>
-					</form><br> -->
-
 					<br />
 					<h3 align="center">Ajax File Upload Progress Bar using PHP JQuery</h3>
 					<br />
-					<!-- <div class="panel panel-default">
-						<div class="panel-heading"><b>Ajax File Upload Progress Bar using PHP JQuery</b></div>
-						<div class="panel-body">
-							<form id="uploadImage" action="<?= site_url('/CourseController/Upload_Video') ?>" method="post" enctype="multipart/form-data">
-								<div class="form-group">
-									<label>File Upload</label>
-									<input type="file" name="uploadFile" id="uploadFile">
-								</div>
-								<div class="form-group">
-									<input type="submit" id="uploadSubmit" value="Upload" class="btn btn-info" />
-								</div>
-								<div class="progress">
-									<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-								</div>
-								<div id="targetLayer" style="display:none;"></div>
-							</form>
-						</div>
-					</div>
-					<script>
-						$(document).ready(function() {
-							$('#uploadImage').submit(function(event) {
-								if ($('#uploadFile').val()) {
-									event.preventDefault();
-									$('#loader-icon').show();
-									$('#targetLayer').hide();
-									$(this).ajaxSubmit({
-										target: '#targetLayer',
-										beforeSubmit: function() {
-											$('.progress-bar').width('50%');
-										},
-										uploadProgress: function(event, position, total, percentageComplete) {
-											$('.progress-bar').animate({
-												width: percentageComplete + '%'
-											}, {
-												duration: 1000
-											});
-										},
-										success: function() {
-											$('#loader-icon').hide();
-											$('#targetLayer').show();
-											//location.reload();
-										},
-										resetForm: true
-									});
-								}
-								return false;
-							});
-						});
-					</script> -->
 					<div class="container text-center">
 						<h2>PHP - File upload progress bar and percentage with jquery</h2>
 						<div style="border: 1px solid #a1a1a1;text-align: center;width: 500px;padding:30px;margin:0px auto">
@@ -304,9 +251,6 @@ endif
 									.submit();
 							});
 						});
-						if (window.history.replaceState) {
-							window.history.replaceState(null, null, window.location.href);
-						}
 					</script>
 
 					<?php
