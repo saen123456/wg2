@@ -113,7 +113,7 @@ body {
   z-index: 99; }
 
 .container {
-  width: 1400px;
+  width: 1600px;
   margin: 0 auto;
   background: #fff; }
 
@@ -217,7 +217,7 @@ input {
   .vertical .content,
   .vertical .actions {
     float: right;
-    width: 1090px; }
+    width: 1250px; }
 
 .content {
   height: 800px; }

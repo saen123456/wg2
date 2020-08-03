@@ -43,9 +43,14 @@ class CourseController extends BaseController
             echo view('login/HomePage');
         }
     }
-    public function CreateCourseStep2()
+    public function CreateCourseStep2($id = null)
     {
         if ($this->session->get("Role_name") == 'teacher' || $this->session->get("Role_name") == 'admin') {
+            $course_id =  $id;
+            $this->Data = [
+                'Course_id' => $course_id,
+            ];
+            $this->session->set($this->Data);
             echo view('Course/CreateCourseStep2');
         } else {
             echo view('login/HomePage');
@@ -72,23 +77,12 @@ class CourseController extends BaseController
         $model_course = new Course_model();
         $model_course->Insert_Course($course_name, $category_course_id, $course_description, $User_id);
         $course_id =  $model_course->Select_newcourse($User_id);
-
-        return redirect()->to(base_url('course/createcourse-step2/' . $course_id));
+        $this->Data = [
+            'Course_id' => $course_id,
+        ];
+        $this->session->set($this->Data);
+        return redirect()->to(base_url('course/manage/config/' . $course_id));
     }
-    /*public function Upload_Video()
-    {
-        $model = new Course_model();
-
-        $file = $this->request->getFile('uploadFile');
-        //echo $file->getClientName();
-        if ($file->getSize() > 0) {
-            $file_random = $file->getClientName();
-            $file->move('./public/upload', $file_random);
-            //$model->Upload_Video($title, $file_random);
-            echo "upload success";
-        }
-    }*/
-
 
     // public function Create_Bucket()
     // {
@@ -128,6 +122,23 @@ class CourseController extends BaseController
         echo "upload success";
         //return redirect()->to(base_url('test55'));
     }
+
+    /*public function Upload_Video()
+    {
+        $model = new Course_model();
+
+        $file = $this->request->getFile('uploadFile');
+        //echo $file->getClientName();
+        if ($file->getSize() > 0) {
+            $file_random = $file->getClientName();
+            $file->move('./public/upload', $file_random);
+            //$model->Upload_Video($title, $file_random);
+            //echo "<img width='200px' src='upload/" . $image_name . "' class='preview'>";
+            echo "<div class='preview'> upload success</div>";
+        } else {
+            echo "image uploading failed";
+        }
+    }*/
     public function Upload_Video()
     {
         $model = new Course_model();

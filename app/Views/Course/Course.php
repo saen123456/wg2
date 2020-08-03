@@ -95,16 +95,16 @@
                                 <?php
                                 if ($this->session->get("Picture")) { ?>
                                     <img src="<?php echo $this->session->get("Picture"); ?>" width="35" height="35" class="rounded-circle"><?php
-                                                                                                                                        } else { ?>
+                                                                                                                                            } else { ?>
                                     <img src="<?php echo base_url('assets/img/profile.jpg'); ?>" width="40" height="40" class="rounded-circle"><?php
-                                                                                                                                            }
+                                                                                                                                                }
                                                                                                                                                 ?>
                             </a>
                             <div class="dropdown-menu mx-auto" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="<?php echo base_url('/profile'); ?>">Profile</a>
                                 <?php
                                 if ($this->session->get("Role_name") == 'student') {
-                                ?>
+                                    ?>
                                     <a class="dropdown-item" href="<?php echo base_url('/teacher'); ?>">สอนบน Workgress</a>
                                 <?php
                                 } else if ($this->session->get("Role_name") == 'admin') { ?>
@@ -150,7 +150,7 @@
                         </div>
                         <?php
                         foreach ($data as $row) :
-                        ?>
+                            ?>
                             <br>
                             <div class="container">
                                 <div class="content_course">
@@ -160,7 +160,7 @@
                                             </div>
                                             <div class="col-10">
                                                 <b> : <?php echo $row['course_name'] ?></b>
-                                                <a href="<?= base_url('/course/createcourse-step2/' . $row['course_id']); ?>">
+                                                <a href="<?= base_url('/course/manage/config/' . $row['course_id']); ?>">
                                                     <div class="content_course-overlay"></div>
                                                     <div class="content_course-details fadeIn-bottom">
                                                         <h3 class="content_course-text">แก้ไข / จัดการหลักสูตร </h3>
