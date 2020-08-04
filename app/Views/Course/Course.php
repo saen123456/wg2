@@ -148,6 +148,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <?php
                         foreach ($data as $row) :
                             ?>

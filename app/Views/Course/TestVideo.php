@@ -42,6 +42,7 @@
 	<!-- progress bar  -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://oss.maxcdn.com/jquery.form/3.50/jquery.form.min.js"></script>
+	<link rel="stylesheet" href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 
@@ -226,117 +227,160 @@ endif
 							</form>
 						</div>
 					</div>
-					<table class="table table-bordered">
-						<thead>
-							<tr>
-								<th>Video</th>
-								<th><a href="#" class="btn btn-info addRow">+</a></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
+					<div class="container">
+
+						<h3>Multi form file uploader using Jquery, PHP, Ajax, and Bootstrap - HackandPhp programming blog </h3>
+						<hr>
+
+						<div class="row">
+							<div class='col-xs-12 col-sm-6 col-md-6 col-lg-6'>
+								<ul class="list-inline">
+									<li><button class="btn btn-success addmore" type="button"><i class="fa fa-plus"></i> Add More</button></li>
+									<li> <button class="btn btn-danger delete" type="button"><i class="fa fa-trash"></i> Delete</button></li>
+									<li><button class="btn btn-sm btn-primary upload-all"><i class="fa fa-upload"></i> Upload All</button></li>
+									<li><button class="btn btn-sm btn-danger cancel-all"><i class="fa fa-ban"></i> Cancel All</button></li>
+								</ul>
+							</div>
+						</div>
+
+						<table class="table table-bordered table-hover" id="table_auto">
+							<tr id="row_0">
+								<td><input class="case" type="checkbox" /></td>
 								<td>
-									<form action="<?= site_url('/CourseController/Upload_Video') ?>" enctype="multipart/form-data" class="form-horizontal" method="post">
-										<div class="preview"></div>
-										<div class="progress" style="display:none">
-											<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
-												0%
+									<form action="#">
+										<div class="col-sm-3">
+											<input id="avatar" class="file-loading" type="file" name="uploadFile">
+										</div>
+										<div class="col-sm-5">
+											<div class="progress progress-striped active">
+												<div class="progress-bar" style="width:0%"></div>
 											</div>
 										</div>
-										<input type="file" name="uploadFile" class="form-control">
-										<button class="btn btn-primary upload-image">Upload</button>
+										<div class="col-sm-4">
+											<button class="btn btn-sm btn-info upload" type="submit"><i class="fa fa-upload"></i> Upload</button>
+											<button type="button" class="btn btn-sm btn-danger cancel"><i class="fa fa-ban"></i> Cancel</button></div>
 									</form>
 								</td>
-								<td><a href="#" class="btn btn-danger remove">-</a></td>
+								<td></td>
+								<td></td>
 							</tr>
-							<tr>
-								<td>
-									<form action="<?= site_url('/CourseController/Upload_Video') ?>" enctype="multipart/form-data" class="form-horizontal2" method="post">
-										<div class="preview2"></div>
-										<div class="progress2" style="display:none">
-											<div class="progress-bar2" role="progressbar2" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
-												0%
-											</div>
-										</div>
-										<input type="file" name="uploadFile" class="form-control">
-										<button class="btn btn-primary upload-image2">Upload</button>
-									</form>
-								</td>
-								<td><a href="#" class="btn btn-danger remove">-</a></td>
-							</tr>
-						</tbody>
-					</table>
+						</table>
 
-					<script type="text/javascript">
-						$('.addRow').on('click', function() {
-							addRow();
-						});
-						var count = 2;
+						<hr>
 
-						function addRow() {
-							var tr =
-								'<tr>' +
-								'<td>' +
-								'<form action="<?= site_url("/CourseController/Upload_Video") ?>" enctype="multipart/form-data" class="form-horizontal" + count + "" method="post">' +
-								'<div class="preview' + count + '"></div>' +
-								'<div class="progress' + count + '" style="display:none">' +
-								'<div class="progress-bar' + count + '" role="progressbar' + count + '" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">' +
-								'0%' +
-								'</div>' +
-								'</div>' +
-								'<input type="file" name="uploadFile" class="form-control">' +
-								'<button class="btn btn-primary upload-image' + count + '">Upload</button>' +
-								'</form>' +
-								'</td>' +
-								'<td><a href="#" class="btn btn-danger remove">-</a></td>' +
-								'</tr>';
-							$('tbody').append(tr);
-						};
-
-						$('tbody').on('click', '.remove', function() {
-							$(this).parent().parent().remove();
-						});
-
-						$(document).ready(function() {
-							var progressbar2 = $('.progress-bar' + count + '');
-							$(".upload-image" + count + "").click(function() {
-								$(".form-horizontal2" + count + "").ajaxForm({
-									target: '.preview' + count + '',
-									beforeSend: function() {
-										$(".progress" + count + "").css("display", "block");
-										progressbar2.width('0%');
-										progressbar2.text('0%');
-									},
-									uploadProgress: function(event, position, total, percentComplete) {
-										progressbar2.width(percentComplete + '%');
-										progressbar2.text(percentComplete + '%');
-									},
-								})
-							});
-						});
-						count++;
-					</script>
-
+					</div>
 					<script type="text/javascript">
 						$(document).ready(function() {
-							var progressbar = $('.progress-bar');
-							$(".upload-image").click(function() {
-								$(".form-horizontal").ajaxForm({
-									target: '.preview',
-									beforeSend: function() {
-										$(".progress").css("display", "block");
-										progressbar.width('0%');
-										progressbar.text('0%');
-									},
-									uploadProgress: function(event, position, total, percentComplete) {
-										progressbar.width(percentComplete + '%');
-										progressbar.text(percentComplete + '%');
-									},
-								})
+							var i = $('#table_auto tr').length; // Get the no.of rows in the table
+							$(".addmore").on('click', function() {
+								html = '<tr id="row_' + i + '">';
+								html += '<td><input class="case" type="checkbox"/></td>';
+								html += '<td>';
+								html += '<form action="#">';
+								html += '<div class="col-sm-3"><input id="avatar" class="file-loading" type="file" name="uploadFile" >';
+								html += '</div><div class="col-sm-5"><div class="progress progress-striped active"><div class="progress-bar" style="width:0%"></div></div></div><div class="col-sm-4">';
+								html += '<button class="btn btn-sm btn-info upload" type="submit"><i class="fa fa-upload"></i> Upload</button><button type="button" class="btn btn-sm btn-danger cancel"><i class="fa fa-ban"></i> Cancel</button></div>';
+								html += '</form>';
+								html += '</td>';
+								html += '<td></td>';
+								html += '<td></td>';
+								html += '</tr>';
+								$('#table_auto').append(html); //Append the new row to the table
+								i++;
 							});
+
+							//to check all checkboxes
+							$(document).on('change', '#check_all', function() {
+								$('input[class=case]:checkbox').prop("checked", $(this).is(':checked'));
+							});
+
+							//deletes the selected table rows
+							$(".delete").on('click', function() {
+								var checkedVals = $('.case:checkbox:checked').map(function() {
+									return $(this).closest('tr').find('td:nth-child(3)').text();
+								}).get(); //Get the File name from the third column of the td.
+								var fileList = checkedVals.join(","); // join all file name by using the seperator ','.
+								var co = confirm("Are your sure Delete the file " + fileList + " ?");
+								if (co) {
+									$.post("delete.php", {
+										'file': fileList //pass data 
+									}, function(data) {}, "json");
+
+									$('.case:checkbox:checked').parents("tr").remove(); //Renove the table row which is checked for deleted.
+									$('#check_all').prop("checked", false);
+								}
+
+							});
+							$('.upload-all').click(function() {
+								//submit all form
+								$('form').submit();
+							});
+							$('.cancel-all').click(function() {
+								//submit all form
+								$('form .cancel').click();
+							});
+
+							$(document).on('submit', 'form', function(e) {
+								e.preventDefault();
+
+								$form = $(this);
+
+								uploadImage($form);
+
+							});
+
+							function uploadImage($form) {
+								$form.find('.progress-bar').removeClass('progress-bar-success')
+									.removeClass('progress-bar-danger');
+
+								var xhr = new window.XMLHttpRequest();
+								$.ajax({
+									url: "<?= site_url('/CourseController/Upload_Video') ?>",
+									type: "POST",
+									data: new FormData($form[0]),
+									contentType: false,
+									cache: false,
+									processData: false,
+									success: function(data) {
+										$form.closest('tr').find('td:nth-child(3)').text(data.image);
+										$form.closest('tr').find('td:nth-child(4)').html(data.destination);
+										$form[0].reset();
+									},
+									error: function() {},
+									xhr: function() {
+
+										//Upload progress
+										xhr.upload.addEventListener("progress", function(e) {
+											if (e.lengthComputable) {
+												var percentComplete = (e.loaded || e.position) * 100 / e.total;
+												//Do something with upload progress
+												console.log(percentComplete);
+												$form.find('.progress-bar').width(percentComplete + '%').html(percentComplete + '%');
+											}
+										}, false);
+										xhr.addEventListener('load', function(e) {
+											$form.find('.progress-bar').addClass('progress-bar-success').html('upload completed....');
+											setTimeout(function() {
+												$(".progress-bar").hide();
+											}, 5000);
+											$(".progress-bar").show();
+										});
+										return xhr;
+									}
+
+								});
+								$form.on('click', '.cancel', function() {
+									xhr.abort();
+
+									$form.find('.progress-bar')
+										.addClass('progress-bar-danger')
+										.removeClass('progress-bar-success')
+										.html('upload aborted...');
+								});
+
+							}
 						});
 					</script>
-
 
 					<?php
 					$count = 0;
