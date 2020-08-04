@@ -207,25 +207,6 @@ endif
 			<div class="overlay"></div>
 			<div class="container"><br><br><br><br>
 				<div style="text-align:center;">
-					<br />
-					<h3 align="center">Ajax File Upload Progress Bar using PHP JQuery</h3>
-					<br />
-					<div class="container text-center">
-						<h2>PHP - File upload progress bar and percentage with jquery</h2>
-						<div style="border: 1px solid #a1a1a1;text-align: center;width: 500px;padding:30px;margin:0px auto">
-							<form action="<?= site_url('/CourseController/Upload_Video') ?>" enctype="multipart/form-data" class="form-horizontal" method="post">
-								<div class="preview"></div>
-								<div class="progress" style="display:none">
-									<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
-										0%
-									</div>
-								</div>
-								<input type="file" name="uploadFile" class="form-control" />
-
-								<button class="btn btn-primary upload-image">Upload</button>
-							</form>
-						</div>
-					</div>
 					<div class="container">
 
 						<h3>Multi form file uploader using Jquery, PHP, Ajax, and Bootstrap - HackandPhp programming blog </h3>
@@ -260,8 +241,7 @@ endif
 											<button type="button" class="btn btn-sm btn-danger cancel"><i class="fa fa-ban"></i> Cancel</button></div>
 									</form>
 								</td>
-								<td></td>
-								<td></td>
+
 							</tr>
 						</table>
 
@@ -281,8 +261,6 @@ endif
 								html += '<button class="btn btn-sm btn-info upload" type="submit"><i class="fa fa-upload"></i> Upload</button><button type="button" class="btn btn-sm btn-danger cancel"><i class="fa fa-ban"></i> Cancel</button></div>';
 								html += '</form>';
 								html += '</td>';
-								html += '<td></td>';
-								html += '<td></td>';
 								html += '</tr>';
 								$('#table_auto').append(html); //Append the new row to the table
 								i++;
@@ -321,11 +299,8 @@ endif
 
 							$(document).on('submit', 'form', function(e) {
 								e.preventDefault();
-
 								$form = $(this);
-
 								uploadImage($form);
-
 							});
 
 							function uploadImage($form) {
@@ -370,13 +345,11 @@ endif
 								});
 								$form.on('click', '.cancel', function() {
 									xhr.abort();
-
 									$form.find('.progress-bar')
 										.addClass('progress-bar-danger')
 										.removeClass('progress-bar-success')
 										.html('upload aborted...');
 								});
-
 							}
 						});
 					</script>
