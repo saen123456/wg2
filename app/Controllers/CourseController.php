@@ -123,7 +123,7 @@ class CourseController extends BaseController
         //return redirect()->to(base_url('test55'));
     }
 
-    /*public function Upload_Video()
+    public function Upload_Video()
     {
         $file = $this->request->getFile('uploadFile');
         if ($file->getSize() > 0) {
@@ -135,48 +135,27 @@ class CourseController extends BaseController
         } else {
             echo "image uploading failed";
         }
-    }*/
-
-    /*public function Upload_Video()
-    {
-        $model = new Course_model();
-
-        //$file = $this->request->getFile('uploadFile');
-
-        $file = $_FILES['uploadFile']['name'];
-        $total = count($file);
-        //echo $file->getClientName();
-        for ($i = 0; $i < $total; $i++) {
-            /*if ($file->getSize() > 0) {
-                $file_random = $file->getClientName();
-                $file->move('./public/upload', $file_random);
-                //$model->Upload_Video($title, $file_random);
-                //echo "<img width='200px' src='upload/" . $image_name . "' class='preview'>";
-                echo "<div class='preview'> upload success</div>";
-            } else {
-                echo "image uploading failed";
-            }
-            echo $i . "<br>";
-        }
-    }*/
-    public function Upload_Video()
-    {
-        $model = new Course_model();
-        $file = $_FILES;
-        $storage = new StorageClient();
-        $bucket = $storage->bucket('workgress');
-
-            $content = file_get_contents($file['uploadFile']['tmp_name']);
-            $file_name = $file['uploadFile']['name'];
-
-            if ($bucket->upload($content, ['name' => $file_name])) {
-                $filelink = "https://storage.googleapis.com/workgress/" . $file['uploadFile']['name'];
-                $model->Upload_Video($file_name, $filelink);
-                echo "<div class='preview'>upload success</div>";
-            } else {
-                echo "<div class='preview'>something wrong</div>";
-            }
-            
-        //return redirect()->to(base_url('test55'));
     }
+
+
+    // public function Upload_Video()
+    // {
+    //     $model = new Course_model();
+    //     $file = $_FILES;
+    //     $storage = new StorageClient();
+    //     $bucket = $storage->bucket('workgress');
+
+    //         $content = file_get_contents($file['uploadFile']['tmp_name']);
+    //         $file_name = $file['uploadFile']['name'];
+
+    //         if ($bucket->upload($content, ['name' => $file_name])) {
+    //             $filelink = "https://storage.googleapis.com/workgress/" . $file['uploadFile']['name'];
+    //             $model->Upload_Video($file_name, $filelink);
+    //             echo "<div class='preview'>upload success</div>";
+    //         } else {
+    //             echo "<div class='preview'>something wrong</div>";
+    //         }
+
+    //     //return redirect()->to(base_url('test55'));
+    // }
 }

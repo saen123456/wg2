@@ -23,9 +23,9 @@
             height: 150,
             width: 680,
             plugins: [
-                'advlist autolink lists link image charmap print preview anchor',
+                'advlist  lists image charmap print preview anchor',
                 'searchreplace visualblocks code fullscreen',
-                'insertdatetime media table paste code help wordcount'
+                'insertdatetime media table paste code  wordcount'
             ],
         });
     </script>
@@ -105,6 +105,34 @@
                                 <label for="ssn" class="form-label">SSN</label>
                                 <input type="text" name="ssn" id="ssn" />
                             </div>
+                            <div class="form-group">
+                                <label for="ssn" class="form-label">SSN</label>
+                                <input type="text" name="ssn" id="ssn" />
+                            </div>
+                            <div class="form-group">
+                                <label for="ssn" class="form-label">SSN</label>
+                                <input type="text" name="ssn" id="ssn" />
+                            </div>
+                            <div class="form-group">
+                                <label for="ssn" class="form-label">SSN</label>
+                                <input type="text" name="ssn" id="ssn" />
+                            </div>
+                            <div class="form-group">
+                                <label for="ssn" class="form-label">SSN</label>
+                                <input type="text" name="ssn" id="ssn" />
+                            </div>
+                            <div class="form-group">
+                                <label for="ssn" class="form-label">SSN</label>
+                                <input type="text" name="ssn" id="ssn" />
+                            </div>
+                            <div class="form-group">
+                                <label for="ssn" class="form-label">SSN</label>
+                                <input type="text" name="ssn" id="ssn" />
+                            </div>
+                            <div class="form-group">
+                                <label for="ssn" class="form-label">SSN</label>
+                                <input type="text" name="ssn" id="ssn" />
+                            </div>
 
 
                         </div>
@@ -121,59 +149,42 @@
                         <div class="fieldset-content">
                             <div class="form-group">
                                 <label for="find_bank" class="form-label">ชื่อหลักสูตร</label>
-                                <input type="text" name="find_bank" id="find_bank" placeholder="ใส่ชื่อหลักสูตรของคุณ" />
-                                <label for="find_bank" class="form-label">คำอธิบายหลักสูตร</label>
-                                <textarea>
-                                        Welcome to TinyMCE!
-                                    </textarea>
-
-
+                                <input type="text" name="find_bank" id="find_bank" placeholder="ใส่ชื่อหลักสูตรของคุณ" maxlength="60" />
                             </div>
-                            <div class="choose-bank">
-                                <p class="choose-bank-desc">Or choose from these popular bank</p>
-                                <div class="form-radio-flex">
-                                    <div class="form-radio-item">
-                                        <input type="radio" name="choose_bank" id="bank_1" value="bank_1" checked="checked" />
-                                        <label for="bank_1"><img src="images/bank-1.jpg" alt=""></label>
+                            <div class="form-group">
+                                <label for="find_bank" class="form-label">คำอธิบายหลักสูตร</label>
+                                <textarea placeholder="ใส่คำอธิบายของหลักสูตรคุณ">
+                                    </textarea>
+                            </div>
+                            <div class="form-group-image">
+                                <label for="image" class="form-label">ภาพหลักสูตร</label>
+                                <div class="row">
+                                    <div class="main-image">
+                                        <img data-purpose="image-preview" alt="ภาพหลักสูตร" width="491" height="276" src="<?php echo base_url('assets/img/pre-image.png'); ?>">
                                     </div>
 
-                                    <div class="form-radio-item">
-                                        <input type="radio" name="choose_bank" id="bank_2" value="bank_2" />
-                                        <label for="bank_2"><img src="images/bank-2.jpg" alt=""></label>
-                                    </div>
-
-                                    <div class="form-radio-item">
-                                        <input type="radio" name="choose_bank" id="bank_3" value="bank_3" />
-                                        <label for="bank_3"><img src="images/bank-3.jpg" alt=""></label>
-                                    </div>
-
-                                    <div class="form-radio-item">
-                                        <input type="radio" name="choose_bank" id="bank_4" value="bank_4" />
-                                        <label for="bank_4"><img src="images/bank-4.jpg" alt=""></label>
-                                    </div>
-
-                                    <div class="form-radio-item">
-                                        <input type="radio" name="choose_bank" id="bank_5" value="bank_5" />
-                                        <label for="bank_5"><img src="images/bank-5.jpg" alt=""></label>
-                                    </div>
-
-                                    <div class="form-radio-item">
-                                        <input type="radio" name="choose_bank" id="bank_6" value="bank_6" />
-                                        <label for="bank_6"><img src="images/bank-6.jpg" alt=""></label>
-                                    </div>
-
-                                    <div class="form-radio-item">
-                                        <input type="radio" name="choose_bank" id="bank_7" value="bank_7" />
-                                        <label for="bank_7"><img src="images/bank-7.jpg" alt=""></label>
-                                    </div>
-
-                                    <div class="form-radio-item">
-                                        <input type="radio" name="choose_bank" id="bank_8" value="bank_8" />
-                                        <label for="bank_8"><img src="images/bank-8.jpg" alt=""></label>
+                                    <div class="main-text">
+                                        <p>อัพโหลดรูปภาพหลักสูตรของคุณที่นี่ ภาพจะต้องตรงกับ มาตรฐานคุณภาพรูปภาพของเรา จึงจะใช้ได้ แนวทางสำคัญ: <b> 750x422 </b> พิกเซล ในรูปแบบ .jpg, .jpeg,. gif หรือ .png.
+                                            โดยไม่มีข้อความบนรูปภาพ</p>
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group-image">
+                                <label for="image" class="form-label">วิดีโอโปรโมชั่น</label>
+                                <div class="row">
+                                    <div class="main-image">
+                                        <img data-purpose="image-preview" alt="ภาพหลักสูตร" width="491" height="276" src="<?php echo base_url('assets/img/pre-image.png'); ?>">
+                                    </div>
+
+                                    <div class="main-text">
+                                        <p>ผู้เรียนที่ได้ชมวิดีโอส่งเสริมการขายที่ผลิตอย่างดี มีแนวโน้มที่จะลงทะเบียนเพิ่มขึ้น 5 เท่า ในหลักสูตรของคุณ เราเห็นสถิติเพิ่มขึ้นถึง 10 เท่า สำหรับวิดีโอที่ทำได้อย่างดีเยี่ยม! </p>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
+
+
 
                     </fieldset>
 

@@ -254,7 +254,7 @@ endif
 									<form action="<?= site_url('/CourseController/Upload_Video') ?>" enctype="multipart/form-data" class="form-horizontal2" method="post">
 										<div class="preview2"></div>
 										<div class="progress2" style="display:none">
-											<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+											<div class="progress-bar2" role="progressbar2" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
 												0%
 											</div>
 										</div>
@@ -271,67 +271,49 @@ endif
 						$('.addRow').on('click', function() {
 							addRow();
 						});
-						var count = 1;
-
-						// function addRow() {
-						// 	var tr =
-						// 		'<tr>' +
-						// 		'<td>' +
-						// 		'<form action="<?= site_url("/CourseController/Upload_Video") ?>" enctype="multipart/form-data" class="form-horizontal' + count + '" method="post">' +
-						// 		'<div class="preview' + count + '"></div>' +
-						// 		'<div class="progress' + count + '" style="display' + count + ':none">' +
-						// 		'<div class="progress-bar' + count + '" role="progressbar' + count + '" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">' +
-						// 		'0%' +
-						// 		'</div>' +
-						// 		'</div>' +
-						// 		'<input type="file" name="uploadFile" class="form-control">' +
-						// 		'<button class="btn btn-primary upload-image' + count + '">Upload</button>' +
-						// 		'</form>' +
-						// 		'</td>' +
-						// 		'<td><a href="#" class="btn btn-danger remove">-</a></td>' +
-						// 		'</tr>';
-						// 	$('tbody').append(tr);
-						// };
+						var count = 2;
 
 						function addRow() {
-							var tr = '<tr>' +
+							var tr =
+								'<tr>' +
 								'<td>' +
-								'<form action="<?= site_url('/CourseController/Upload_Video') ?>" enctype="multipart/form-data" class="form-horizontal" method="post">' +
-								'<div class="preview"></div>' +
-								'<div class="progress" style="display:none">' +
-								'<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">' +
+								'<form action="<?= site_url("/CourseController/Upload_Video") ?>" enctype="multipart/form-data" class="form-horizontal" + count + "" method="post">' +
+								'<div class="preview' + count + '"></div>' +
+								'<div class="progress' + count + '" style="display:none">' +
+								'<div class="progress-bar' + count + '" role="progressbar' + count + '" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">' +
 								'0%' +
 								'</div>' +
 								'</div>' +
 								'<input type="file" name="uploadFile" class="form-control">' +
-								'<button class="btn btn-primary upload-image">Upload</button>' +
+								'<button class="btn btn-primary upload-image' + count + '">Upload</button>' +
 								'</form>' +
 								'</td>' +
 								'<td><a href="#" class="btn btn-danger remove">-</a></td>' +
 								'</tr>';
 							$('tbody').append(tr);
 						};
+
 						$('tbody').on('click', '.remove', function() {
 							$(this).parent().parent().remove();
 						});
 
-						// $(document).ready(function() {
-						// 	var progressbar = $(".progress-bar" + count + "");
-						// 	$(".upload-image" + count + "").click(function() {
-						// 		$(".form-horizontal" + count + "").ajaxForm({
-						// 			target: ".preview" + count + "",
-						// 			beforeSend: function() {
-						// 				$(".progress" + count + "").css("display" + count + "", "block");
-						// 				progressbar.width('0%');
-						// 				progressbar.text('0%');
-						// 			},
-						// 			uploadProgress: function(event, position, total, percentComplete) {
-						// 				progressbar.width(percentComplete + '%');
-						// 				progressbar.text(percentComplete + '%');
-						// 			},
-						// 		})
-						// 	});
-						// });
+						$(document).ready(function() {
+							var progressbar2 = $('.progress-bar' + count + '');
+							$(".upload-image" + count + "").click(function() {
+								$(".form-horizontal2" + count + "").ajaxForm({
+									target: '.preview' + count + '',
+									beforeSend: function() {
+										$(".progress" + count + "").css("display", "block");
+										progressbar2.width('0%');
+										progressbar2.text('0%');
+									},
+									uploadProgress: function(event, position, total, percentComplete) {
+										progressbar2.width(percentComplete + '%');
+										progressbar2.text(percentComplete + '%');
+									},
+								})
+							});
+						});
 						count++;
 					</script>
 
@@ -349,23 +331,6 @@ endif
 									uploadProgress: function(event, position, total, percentComplete) {
 										progressbar.width(percentComplete + '%');
 										progressbar.text(percentComplete + '%');
-									},
-								})
-							});
-						});
-						$(document).ready(function() {
-							var progressbar2 = $('.progress-bar');
-							$(".upload-image2").click(function() {
-								$(".form-horizontal2").ajaxForm({
-									target: '.preview2',
-									beforeSend: function() {
-										$(".progress2").css("display", "block");
-										progressbar2.width('0%');
-										progressbar2.text('0%');
-									},
-									uploadProgress: function(event, position, total, percentComplete) {
-										progressbar2.width(percentComplete + '%');
-										progressbar2.text(percentComplete + '%');
 									},
 								})
 							});
