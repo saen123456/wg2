@@ -123,9 +123,9 @@ class CourseController extends BaseController
         //return redirect()->to(base_url('test55'));
     }
 
-    /*public function Upload_Video()
+    public function Upload_Test()
     {
-        $file = $this->request->getFile('uploadFile');
+        $file = $this->request->getFile('unit_video_file');
         if ($file->getSize() > 0) {
             $file_random = $file->getClientName();
             $file->move('./public/upload', $file_random);
@@ -135,7 +135,7 @@ class CourseController extends BaseController
         } else {
             echo "image uploading failed";
         }
-    }*/
+    }
 
 
     public function Upload_Video()
@@ -145,11 +145,11 @@ class CourseController extends BaseController
         $storage = new StorageClient();
         $bucket = $storage->bucket('workgress');
 
-        $content = file_get_contents($file['uploadFile']['tmp_name']);
+        $content = file_get_contents($file['unit_video_file']['tmp_name']);
         $file_name = $file['uploadFile']['name'];
 
         if ($bucket->upload($content, ['name' => $file_name])) {
-            $filelink = "https://storage.googleapis.com/workgress/" . $file['uploadFile']['name'];
+            $filelink = "https://storage.googleapis.com/workgress/" . $file['unit_video_file']['name'];
             $model->Upload_Video($file_name, $filelink);
             echo "<div class='preview'>upload success</div>";
         } else {

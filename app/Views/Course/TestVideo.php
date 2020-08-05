@@ -309,7 +309,7 @@ endif
 
 								var xhr = new window.XMLHttpRequest();
 								$.ajax({
-									url: "<?= site_url('/CourseController/Upload_Video') ?>",
+									url: "<?= site_url('/CourseController/Upload_Test') ?>",
 									type: "POST",
 									data: new FormData($form[0]),
 									contentType: false,
