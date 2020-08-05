@@ -215,7 +215,6 @@
                     html += '</tr>';
                     $('#table_auto').append(html); //Append the new row to the table
                     i++;
-                    <?php $count++ ?>
                 });
                 //to check all checkboxes
                 $(document).on('change', '#check_all', function() {
@@ -261,9 +260,8 @@
                     var xhr = new window.XMLHttpRequest();
                     $.ajax({
                         url: "<?php
-
                                 echo site_url('/CourseController/Upload_Unit?unit=' . $count . '');
-
+                                $count++
                                 ?>",
                         type: "POST",
                         data: new FormData($form[0]),
