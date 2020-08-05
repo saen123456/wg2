@@ -262,11 +262,12 @@
                     var xhr = new window.XMLHttpRequest();
 
                     $.ajax({
-                        <?php $count = "<script>document.writeln(Unit_Count)</script>"; ?>
-                        url: "<?php
-                                echo site_url('/CourseController/Upload_Unit?unit=' . $count . '');
-                                // echo site_url('/CourseController/Upload_Test');
-                                ?>",
+                        url: "https://workgress.online/CourseController/Upload_Unit?unit=" + Unit_Count,
+                        // url: "<?php
+                                    //         echo site_url('/CourseController/Upload_Unit?unit=' . $count . '');
+                                    //         // echo site_url('/CourseController/Upload_Test');
+                                    //         
+                                    ?>",
                         type: "POST",
                         data: new FormData($form[0]),
                         contentType: false,
