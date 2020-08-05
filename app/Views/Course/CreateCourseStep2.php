@@ -264,7 +264,7 @@
                     $.ajax({
 
                         url: "<?php
-                                echo site_url('/CourseController/Upload_Unit?unit=<script>document.writeln(Unit_Count)</script>');
+                                echo site_url('/CourseController/Upload_Unit?unit=' . '<script>Unit_Count</script>');
                                 // echo site_url('/CourseController/Upload_Test');
                                 ?>",
                         type: "POST",
@@ -277,7 +277,6 @@
                             $form.closest('tr').find('td:nth-child(4)').html(data.destination);
                             $form[0].reset();
                             console.log(Unit_Count);
-
                             Unit_Count++
 
                         },
