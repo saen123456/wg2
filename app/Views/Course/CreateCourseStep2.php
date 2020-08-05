@@ -94,15 +94,14 @@
                                                     </ul>
                                                 </div>
                                             </div>
-
+                                            <?php
+                                            $count = 1;
+                                            ?>
                                             <table class="table table-bordered table-hover" id="table_auto">
                                                 <tr id="row_0">
                                                     <td><input class="case" type="checkbox" /></td>
                                                     <td>
                                                         <form action="#" id="uploadform">
-                                                            <?php
-                                                            $count = 1;
-                                                            ?>
                                                             <input type="text" name="Unit_Name" id="Unit_Name" placeholder="กรอกชื่อ unit ของคุณ เช่น ส่วนที่ 1 บทนำ " />
                                                             <br>
                                                             <div class="col-sm-3">
@@ -261,7 +260,6 @@
                     $.ajax({
                         url: "<?php
                                 echo site_url('/CourseController/Upload_Unit?unit=' . $count . '');
-                                $count++
                                 ?>",
                         type: "POST",
                         data: new FormData($form[0]),
@@ -303,6 +301,7 @@
                             .removeClass('progress-bar-success')
                             .html('upload aborted...');
                     });
+                    <?php $count++ ?>
                 }
             });
         </script>
