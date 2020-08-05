@@ -264,7 +264,9 @@
                     $.ajax({
 
                         url: "<?php
-                                echo site_url("/CourseController/Upload_Unit?unit=' . '<script>document.write(Unit_Count)</script>' .");
+                                $count = "<script>document.writeln(Unit_Count)</script>";
+                                echo "<br>";
+                                echo site_url('/CourseController/Upload_Unit?unit=' . $count . '');
                                 // echo site_url('/CourseController/Upload_Test');
                                 ?>",
                         type: "POST",
