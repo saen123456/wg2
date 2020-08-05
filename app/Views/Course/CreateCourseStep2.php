@@ -37,7 +37,9 @@
         });
     </script>
 </head>
-
+<?php
+$count = 1;
+?>
 
 <body class="body2">
 
@@ -94,9 +96,7 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <?php
-                                            $count = 1;
-                                            ?>
+
                                             <table class="table table-bordered table-hover" id="table_auto">
                                                 <tr id="row_0">
                                                     <td><input class="case" type="checkbox" /></td>
@@ -292,7 +292,7 @@
                             });
                             return xhr;
                         }
-
+                        <?php $count++ ?>
                     });
                     $form.on('click', '.cancel', function() {
                         xhr.abort();
@@ -301,7 +301,7 @@
                             .removeClass('progress-bar-success')
                             .html('upload aborted...');
                     });
-                    <?php $count++ ?>
+
                 }
             });
         </script>
