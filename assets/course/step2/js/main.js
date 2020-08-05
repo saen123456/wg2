@@ -1,52 +1,52 @@
 (function ($) {
-    var form = $("#signup-form");
-    form.validate({
-        errorPlacement: function errorPlacement(error, element) {
-            element.before(error);
-        },
-        rules: {
-            email: {
-                email: true,
-                required: true,
-            }
-        },
-        onfocusout: function (element) {
-            $(element).valid();
-        },
-    });
-    form.children("div").steps({
+    // var form = $("#signup-form");
+    // form.validate({
+    //     errorPlacement: function errorPlacement(error, element) {
+    //         element.before(error);
+    //     },
+    //     rules: {
+    //         email: {
+    //             email: true,
+    //             required: true,
+    //         }
+    //     },
+    //     onfocusout: function (element) {
+    //         $(element).valid();
+    //     },
+    // });
+    $("#signup-form").steps({
         headerTag: "h3",
         bodyTag: "fieldset",
         transitionEffect: "fade",
         stepsOrientation: "vertical",
         titleTemplate: '<div class="title"><span class="step-number">#index#</span><span class="step-text">#title#</span></div>',
-
+        enableAllSteps: true,
         labels: {
-            previous: 'Previous',
-            next: 'Next',
-            finish: 'Finish',
+            // previous: 'Previous',
+            // next: 'Next',
+            // finish: 'Finish',
             current: ''
         },
-        onStepChanging: function (event, currentIndex, newIndex) {
+        // onStepChanging: function (event, currentIndex, newIndex) {
 
-            form.validate().settings.ignore = ":disabled,:hidden";
-            return form.valid();
-        },
-        onFinishing: function (event, currentIndex) {
-            form.validate().settings.ignore = ":disabled";
-            return form.valid();
-        },
-        onFinished: function (event, currentIndex) {
-            alert('Submited');
-        },
-        onStepChanged: function (event, currentIndex, priorIndex) {
-            console.log("currentIndex = " + priorIndex)
-            if (priorIndex == 0) {
+        //     form.validate().settings.ignore = ":disabled,:hidden";
+        //     return form.valid();
+        // },
+        // onFinishing: function (event, currentIndex) {
+        //     form.validate().settings.ignore = ":disabled";
+        //     return form.valid();
+        // },
+        // onFinished: function (event, currentIndex) {
+        //     alert('Submited');
+        // },
+        // onStepChanged: function (event, currentIndex, priorIndex) {
+        //     console.log("currentIndex = " + priorIndex)
+        //     if (priorIndex == 0) {
 
-            }
+        //     }
 
-            return true;
-        }
+        //     return true;
+        // }
     });
 
     jQuery.extend(jQuery.validator.messages, {

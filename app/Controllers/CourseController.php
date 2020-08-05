@@ -165,14 +165,15 @@ class CourseController extends BaseController
         $storage = new StorageClient();
         $bucket = $storage->bucket('workgress');
 
-        $content = file_get_contents($file['unit_video_file']['tmp_name']);
-        //$file_name = $file['unit_video_file']['name'];
-        $unit_name = $this->request->getVar('unit_name');
-
-
-        if ($bucket->upload($content, ['name' => $unit_name])) {
-            $filelink = "https://storage.googleapis.com/workgress/" . $file['unit_video_file']['name'];
-            $model->Upload_Video($unit_name, $filelink);
+        $content = file_get_contents($file['Unit_Video_File']['tmp_name']);
+        $Video_Name = $file['unit_video_file']['name'];
+        $Unit_Name = $this->request->getVar('Unit_Name');
+        $User_id = $this->session->get("User_id");
+        $Course_id = $this->session->get("Course_id");
+        $Unit = $_GET['unit'];
+        if ($bucket->upload($content, ['name' => $Video_Name])) {
+            $Video_link = "https://storage.googleapis.com/workgress/" . $Video_Name;
+            $model->Upload_Unit($Course_id, $Video_link, $User_id, $Unit_Name, $Unit,$Video_Name);
             echo "<div class='preview'>upload success</div>";
         } else {
             echo "<div class='preview'>something wrong</div>";

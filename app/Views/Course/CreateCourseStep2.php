@@ -44,162 +44,158 @@
     <div class="main2">
 
         <div class="container2">
-            <form method="POST" id="signup-form" class="signup-form" action="#">
-                <div>
-                    <?php
-                    $this->session = \Config\Services::session();
-                    if (session('correct')) : ?>
-                        <div class="alert alert-success" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <strong>Workgress!</strong> <?php echo session('correct') ?>
-                        </div>
-                    <?php
-                    elseif (session('incorrect')) : ?>
-                        <div class="alert alert-warning" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <strong>Workgress!</strong> <?php echo session('incorrect') ?>
-                        </div>
-                    <?php
-                    elseif (session('warning')) : ?>
-                        <div class="alert alert-warning" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <strong>Workgress!</strong> <?php echo session('warning') ?>
-                        </div>
-                    <?php
-                    endif
-                    ?>
-                    <h3>หลักสูตร</h3>
-                    <fieldset class="fieldset2">
-                        <h2>หลักสูตร</h2>
-                        <p class="desc">เริ่มต้นรวมหลักสูตรของคุณเข้าด้วยกันด้วยการสร้างส่วน การบรรยาย และแบบฝึกหัด (โจทย์ แบบฝึกหัดการเขียนโค้ด และงานที่ได้รับมอบหมาย)</p>
-                        <div class="fieldset-content2">
-                            <div class="form-row2">
-                                <div class="form-flex">
-                                    <div class="form-group">
+            <div id="signup-form">
+
+                <?php
+                $this->session = \Config\Services::session();
+                if (session('correct')) : ?>
+                    <div class="alert alert-success" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Workgress!</strong> <?php echo session('correct') ?>
+                    </div>
+                <?php
+                elseif (session('incorrect')) : ?>
+                    <div class="alert alert-warning" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Workgress!</strong> <?php echo session('incorrect') ?>
+                    </div>
+                <?php
+                elseif (session('warning')) : ?>
+                    <div class="alert alert-warning" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Workgress!</strong> <?php echo session('warning') ?>
+                    </div>
+                <?php
+                endif
+                ?>
+                <h3>หลักสูตร</h3>
+                <fieldset class="fieldset2">
+                    <h2>หลักสูตร</h2>
+                    <p class="desc">เริ่มต้นรวมหลักสูตรของคุณเข้าด้วยกันด้วยการสร้างส่วน การบรรยาย และแบบฝึกหัด (โจทย์ แบบฝึกหัดการเขียนโค้ด และงานที่ได้รับมอบหมาย)</p>
+                    <div class="fieldset-content2">
+                        <div class="form-row2">
+                            <div class="form-flex">
+                                <div class="form-group">
 
 
-                                        <div style="text-align:center;">
-                                            <div class="container">
+                                    <div style="text-align:center;">
+                                        <div class="container">
 
-                                                <h3>Multi form file uploader using Jquery, PHP, Ajax, and Bootstrap - HackandPhp programming blog </h3>
-                                                <hr>
+                                            <h3>Multi form file uploader using Jquery, PHP, Ajax, and Bootstrap - HackandPhp programming blog </h3>
+                                            <hr>
 
-                                                <div class="row">
-                                                    <div class='col-xs-12 col-sm-6 col-md-6 col-lg-6'>
-                                                        <ul class="list-inline">
-                                                            <li><button class="btn btn-success addmore" type="button"><i class="fa fa-plus"></i> เพิ่ม Unit</button></li>
-                                                            <li> <button class="btn btn-danger delete" type="button"><i class="fa fa-trash"></i> ลบ Unit</button></li>
-                                                            <li><button class="btn btn-sm btn-primary upload-all"><i class="fa fa-upload"></i> Upload ทั้งหมด</button></li>
+                                            <div class="row">
+                                                <div class='col-xs-12 col-sm-6 col-md-6 col-lg-6'>
+                                                    <ul class="list-inline">
+                                                        <li><button class="btn btn-success addmore" type="button"><i class="fa fa-plus"></i> เพิ่ม Unit</button></li>
+                                                        <li> <button class="btn btn-danger delete" type="button"><i class="fa fa-trash"></i> ลบ Unit</button></li>
+                                                        <li><button class="btn btn-sm btn-primary upload-all"><i class="fa fa-upload"></i> Upload ทั้งหมด</button></li>
 
-                                                        </ul>
-                                                    </div>
+                                                    </ul>
                                                 </div>
-
-                                                <table class="table table-bordered table-hover" id="table_auto">
-                                                    <tr id="row_0">
-                                                        <td><input class="case" type="checkbox" /></td>
-                                                        <td>
-                                                            <form action="#">
-                                                                <input type="text" name="unit_name" id="unit_name" placeholder="กรอกชื่อ unit ของคุณ เช่น ส่วนที่ 1 บทนำ " />
-                                                                <br>
-                                                                <div class="col-sm-3">
-                                                                    <input id="avatar" class="file-loading" type="file" name="unit_video_file">
-                                                                </div>
-                                                                <div class="col-sm-5">
-                                                                    <div class="progress progress-striped active">
-                                                                        <div class="progress-bar" style="width:0%"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-4">
-                                                                    <button class="btn btn-sm btn-info upload" type="submit"><i class="fa fa-upload"></i> Upload Unit</button>
-
-                                                            </form>
-                                                        </td>
-
-                                                    </tr>
-                                                </table>
-
-                                                <hr>
-
                                             </div>
+
+                                            <table class="table table-bordered table-hover" id="table_auto">
+                                                <tr id="row_0">
+                                                    <td><input class="case" type="checkbox" /></td>
+                                                    <td>
+                                                        <form action="#" id="uploadform">
+                                                            <?php
+                                                            $count = 1;
+                                                            ?>
+                                                            <input type="text" name="Unit_Name" id="Unit_Name" placeholder="กรอกชื่อ unit ของคุณ เช่น ส่วนที่ 1 บทนำ " />
+                                                            <br>
+                                                            <div class="col-sm-3">
+                                                                <input id="avatar" class="file-loading" type="file" name="Unit_Video_File">
+                                                            </div>
+                                                            <div class="col-sm-5">
+                                                                <div class="progress progress-striped active">
+                                                                    <div class="progress-bar" style="width:0%"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <button class="btn btn-sm btn-info upload" type="submit"><i class="fa fa-upload"></i> Upload Unit</button>
+                                                        </form>
+                                                    </td>
+
+                                                </tr>
+                                            </table>
+
+                                            <hr>
+
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-                    </fieldset>
 
-
-                    <h3>หน้าเริ่มต้นของหลักสูตร</h3>
-                    <fieldset class="fieldset2">
-                        <h2>หน้าเริ่มต้นของหลักสูตร</h2>
-                        <div class="form-find">
-                            <p class="desc">Please enter your infomation and proceed to next step so we can build your
-                                account</p>
                         </div>
-                        <div class="fieldset-content2">
-                            <div class="form-group">
-                                <label for="find_bank" class="form-label2">ชื่อหลักสูตร</label>
-                                <input type="text" name="find_bank" id="find_bank" placeholder="ใส่ชื่อหลักสูตรของคุณ" maxlength="60" />
-                            </div>
-                            <div class="form-group">
-                                <label for="find_bank" class="form-label2">คำอธิบายหลักสูตร</label>
-                                <textarea placeholder="ใส่คำอธิบายของหลักสูตรคุณ">
+                </fieldset>
+
+
+                <h3>หน้าเริ่มต้นของหลักสูตร</h3>
+                <fieldset class="fieldset2">
+                    <h2>หน้าเริ่มต้นของหลักสูตร</h2>
+                    <div class="form-find">
+                        <p class="desc">Please enter your infomation and proceed to next step so we can build your
+                            account</p>
+                    </div>
+                    <div class="fieldset-content2">
+                        <div class="form-group">
+                            <label for="find_bank" class="form-label2">ชื่อหลักสูตร</label>
+                            <input type="text" name="find_bank" id="find_bank" placeholder="ใส่ชื่อหลักสูตรของคุณ" maxlength="60" />
+                        </div>
+                        <div class="form-group">
+                            <label for="find_bank" class="form-label2">คำอธิบายหลักสูตร</label>
+                            <textarea placeholder="ใส่คำอธิบายของหลักสูตรคุณ">
                                     </textarea>
-                            </div>
-                            <div class="form-group-image">
-                                <label for="image" class="form-label2">ภาพหลักสูตร</label>
-                                <div class="row">
-                                    <div class="main-image">
-                                        <img data-purpose="image-preview" alt="ภาพหลักสูตร" width="491" height="276" src="<?php echo base_url('assets/img/pre-image.png'); ?>">
-                                    </div>
-
-                                    <div class="main-text">
-                                        <p>อัพโหลดรูปภาพหลักสูตรของคุณที่นี่ ภาพจะต้องตรงกับ มาตรฐานคุณภาพรูปภาพของเรา จึงจะใช้ได้ แนวทางสำคัญ: <b> 750x422 </b> พิกเซล ในรูปแบบ .jpg, .jpeg,. gif หรือ .png.
-                                            โดยไม่มีข้อความบนรูปภาพ</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group-image">
-                                <label for="image" class="form-label2">วิดีโอโปรโมชั่น</label>
-                                <div class="row">
-                                    <div class="main-image">
-                                        <img data-purpose="image-preview" alt="ภาพหลักสูตร" width="491" height="276" src="<?php echo base_url('assets/img/pre-image.png'); ?>">
-                                    </div>
-
-                                    <div class="main-text">
-                                        <p>ผู้เรียนที่ได้ชมวิดีโอส่งเสริมการขายที่ผลิตอย่างดี มีแนวโน้มที่จะลงทะเบียนเพิ่มขึ้น 5 เท่า ในหลักสูตรของคุณ เราเห็นสถิติเพิ่มขึ้นถึง 10 เท่า สำหรับวิดีโอที่ทำได้อย่างดีเยี่ยม! </p>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
+                        <div class="form-group-image">
+                            <label for="image" class="form-label2">ภาพหลักสูตร</label>
+                            <div class="row">
+                                <div class="main-image">
+                                    <img data-purpose="image-preview" alt="ภาพหลักสูตร" width="491" height="276" src="<?php echo base_url('assets/img/pre-image.png'); ?>">
+                                </div>
 
-
-
-                    </fieldset>
-
-                    <h3>การกำหนดราคา</h3>
-                    <fieldset class="fieldset2">
-                        <h2>Set Financial Goals</h2>
-                        <p class="desc">Set up your money limit to reach the future plan</p>
-                        <div class="fieldset-content2">
-                            <div class="donate-us">
-                                <div class="price_slider ui-slider ui-slider-horizontal">
-                                    <div id="slider-margin"></div>
-                                    <p class="your-money">
-                                        Your money you can spend per month :
-                                        <span class="money" id="value-lower"></span>
-                                        <span class="money" id="value-upper"></span>
-                                    </p>
+                                <div class="main-text">
+                                    <p>อัพโหลดรูปภาพหลักสูตรของคุณที่นี่ ภาพจะต้องตรงกับ มาตรฐานคุณภาพรูปภาพของเรา จึงจะใช้ได้ แนวทางสำคัญ: <b> 750x422 </b> พิกเซล ในรูปแบบ .jpg, .jpeg,. gif หรือ .png.
+                                        โดยไม่มีข้อความบนรูปภาพ</p>
                                 </div>
                             </div>
                         </div>
-                    </fieldset>
-                </div>
-            </form>
+                        <div class="form-group-image">
+                            <label for="image" class="form-label2">วิดีโอโปรโมชั่น</label>
+                            <div class="row">
+                                <div class="main-image">
+                                    <img data-purpose="image-preview" alt="ภาพหลักสูตร" width="491" height="276" src="<?php echo base_url('assets/img/pre-image.png'); ?>">
+                                </div>
 
+                                <div class="main-text">
+                                    <p>ผู้เรียนที่ได้ชมวิดีโอส่งเสริมการขายที่ผลิตอย่างดี มีแนวโน้มที่จะลงทะเบียนเพิ่มขึ้น 5 เท่า ในหลักสูตรของคุณ เราเห็นสถิติเพิ่มขึ้นถึง 10 เท่า สำหรับวิดีโอที่ทำได้อย่างดีเยี่ยม! </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                </fieldset>
+
+                <h3>การกำหนดราคา</h3>
+                <fieldset class="fieldset2">
+                    <h2>Set Financial Goals</h2>
+                    <p class="desc">Set up your money limit to reach the future plan</p>
+                    <div class="fieldset-content2">
+                        <div class="donate-us">
+                            <div class="price_slider ui-slider ui-slider-horizontal">
+                                <div id="slider-margin"></div>
+                                <p class="your-money">
+                                    Your money you can spend per month :
+                                    <span class="money" id="value-lower"></span>
+                                    <span class="money" id="value-upper"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
         </div>
         <script type="text/javascript">
             $(document).ready(function() {
@@ -209,17 +205,17 @@
                     html += '<td><input class="case" type="checkbox"/></td>';
                     html += '<td>';
                     html += '<form action="#">';
-                    html += '<input type="text" name="unit_name" id="unit_name" placeholder="กรอกชื่อ unit ของคุณ เช่น ส่วนที่ 1 บทนำ" />';
+                    html += '<input type="text" name="Unit_Name" id="Unit_Name" placeholder="กรอกชื่อ unit ของคุณ เช่น ส่วนที่ 1 บทนำ" />';
                     html += '<br>';
-                    html += '<div class="col-sm-3"><input id="avatar" class="file-loading" type="file" name="unit_video_file" >';
+                    html += '<div class="col-sm-3"><input id="avatar" class="file-loading" type="file" name="Unit_Video_File" >';
                     html += '</div><div class="col-sm-5"><div class="progress progress-striped active"><div class="progress-bar" style="width:0%"></div></div></div><div class="col-sm-4">';
                     html += '<button class="btn btn-sm btn-info upload" type="submit"><i class="fa fa-upload"></i> Upload</button></div>';
                     html += '</form>';
                     html += '</td>';
                     html += '</tr>';
-
                     $('#table_auto').append(html); //Append the new row to the table
                     i++;
+                    <?php $count++ ?>
                 });
                 //to check all checkboxes
                 $(document).on('change', '#check_all', function() {
@@ -241,8 +237,8 @@
                         $('.case:checkbox:checked').parents("tr").remove(); //Renove the table row which is checked for deleted.
                         $('#check_all').prop("checked", false);
                     }
-
                 });
+
                 $('.upload-all').click(function() {
                     //submit all form
                     $('form').submit();
@@ -264,7 +260,11 @@
 
                     var xhr = new window.XMLHttpRequest();
                     $.ajax({
-                        url: "<?= site_url('/CourseController/Upload_Test') ?>",
+                        url: "<?php
+
+                                echo site_url('/CourseController/Upload_Unit?unit=' . $count);
+
+                                ?>",
                         type: "POST",
                         data: new FormData($form[0]),
                         contentType: false,
