@@ -125,13 +125,14 @@ class CourseController extends BaseController
 
     public function Upload_Test()
     {
-        $file = $this->request->getFile('unit_video_file');
+        $Unit = $_GET['unit'];
+        $file = $this->request->getFile('Unit_Video_File');
         if ($file->getSize() > 0) {
             $file_random = $file->getClientName();
             $file->move('./public/upload', $file_random);
             //$model->Upload_Video($title, $file_random);
             //echo "<img width='200px' src='upload/" . $image_name . "' class='preview'>";
-            echo " upload success";
+            echo $Unit;
         } else {
             echo "image uploading failed";
         }
@@ -145,11 +146,11 @@ class CourseController extends BaseController
         $storage = new StorageClient();
         $bucket = $storage->bucket('workgress');
 
-        $content = file_get_contents($file['unit_video_file']['tmp_name']);
+        $content = file_get_contents($file['Unit_Video_File']['tmp_name']);
         $file_name = $file['uploadFile']['name'];
 
         if ($bucket->upload($content, ['name' => $file_name])) {
-            $filelink = "https://storage.googleapis.com/workgress/" . $file['unit_video_file']['name'];
+            $filelink = "https://storage.googleapis.com/workgress/" . $file['Unit_Video_File']['name'];
             $model->Upload_Video($file_name, $filelink);
             echo "<div class='preview'>upload success</div>";
         } else {
@@ -166,14 +167,14 @@ class CourseController extends BaseController
         $bucket = $storage->bucket('workgress');
 
         $content = file_get_contents($file['Unit_Video_File']['tmp_name']);
-        $Video_Name = $file['unit_video_file']['name'];
+        $Video_Name = $file['Unit_Video_File']['name'];
         $Unit_Name = $this->request->getVar('Unit_Name');
         $User_id = $this->session->get("User_id");
         $Course_id = $this->session->get("Course_id");
         $Unit = $_GET['unit'];
         if ($bucket->upload($content, ['name' => $Video_Name])) {
             $Video_link = "https://storage.googleapis.com/workgress/" . $Video_Name;
-            $model->Upload_Unit($Course_id, $Video_link, $User_id, $Unit_Name, $Unit,$Video_Name);
+            $model->Upload_Unit($Course_id, $Video_link, $User_id, $Unit_Name, $Unit, $Video_Name);
             echo "<div class='preview'>upload success</div>";
         } else {
             echo "<div class='preview'>something wrong</div>";

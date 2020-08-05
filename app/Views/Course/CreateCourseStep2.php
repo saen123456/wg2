@@ -262,7 +262,7 @@
                     $.ajax({
                         url: "<?php
 
-                                echo site_url('/CourseController/Upload_Unit?unit=' . $count);
+                                echo site_url('/CourseController/Upload_Unit?unit=' . $count . '');
 
                                 ?>",
                         type: "POST",
