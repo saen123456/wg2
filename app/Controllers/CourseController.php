@@ -125,13 +125,20 @@ class CourseController extends BaseController
 
     public function Upload_Test()
     {
-        $Unit = $_GET['unit'];
+        $Unit = 1;
+
+        ?>
+        <script>
+            console.log(<?php echo $Unit ?>);
+        </script>
+<?php
         $file = $this->request->getFile('Unit_Video_File');
         if ($file->getSize() > 0) {
             $file_random = $file->getClientName();
             $file->move('./public/upload', $file_random);
             //$model->Upload_Video($title, $file_random);
             //echo "<img width='200px' src='upload/" . $image_name . "' class='preview'>";
+
             echo $Unit;
         } else {
             echo "image uploading failed";
@@ -141,6 +148,7 @@ class CourseController extends BaseController
 
     public function Upload_Video()
     {
+        
         $model = new Course_model();
         $file = $_FILES;
         $storage = new StorageClient();

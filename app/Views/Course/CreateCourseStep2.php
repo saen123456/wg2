@@ -2,6 +2,7 @@
 <html>
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -37,9 +38,8 @@
         });
     </script>
 </head>
-<?php
-$count = 1;
-?>
+
+
 
 <body class="body2">
 
@@ -199,6 +199,7 @@ $count = 1;
         <script type="text/javascript">
             $(document).ready(function() {
                 var i = $('#table_auto tr').length; // Get the no.of rows in the table
+                var Unit_Count = 1;
                 $(".addmore").on('click', function() {
                     html = '<tr id="row_' + i + '">';
                     html += '<td><input class="case" type="checkbox"/></td>';
@@ -250,16 +251,21 @@ $count = 1;
                     e.preventDefault();
                     $form = $(this);
                     uploadImage($form);
+
                 });
 
                 function uploadImage($form) {
+
                     $form.find('.progress-bar').removeClass('progress-bar-success')
                         .removeClass('progress-bar-danger');
 
                     var xhr = new window.XMLHttpRequest();
+
                     $.ajax({
+
                         url: "<?php
-                                echo site_url('/CourseController/Upload_Unit?unit=' . $count . '');
+                                echo site_url('/CourseController/Upload_Test?unit=<script type="text/javascript">Unit_Count</script>');
+                                // echo site_url('/CourseController/Upload_Test');
                                 ?>",
                         type: "POST",
                         data: new FormData($form[0]),
@@ -270,6 +276,10 @@ $count = 1;
                             $form.closest('tr').find('td:nth-child(3)').text(data.image);
                             $form.closest('tr').find('td:nth-child(4)').html(data.destination);
                             $form[0].reset();
+                            console.log(Unit_Count);
+
+                            Unit_Count++
+
                         },
                         error: function() {},
                         xhr: function() {
@@ -280,6 +290,7 @@ $count = 1;
                                     var percentComplete = (e.loaded || e.position) * 100 / e.total;
                                     //Do something with upload progress
                                     console.log(percentComplete);
+
                                     $form.find('.progress-bar').width(percentComplete + '%').html(percentComplete + '%');
                                 }
                             }, false);
@@ -292,7 +303,7 @@ $count = 1;
                             });
                             return xhr;
                         }
-                        <?php $count++ ?>
+
                     });
                     $form.on('click', '.cancel', function() {
                         xhr.abort();
