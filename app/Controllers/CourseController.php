@@ -158,4 +158,26 @@ class CourseController extends BaseController
 
         //return redirect()->to(base_url('test55'));
     }
+    public function Upload_Unit()
+    {
+        $model = new Course_model();
+        $file = $_FILES;
+        $storage = new StorageClient();
+        $bucket = $storage->bucket('workgress');
+
+        $content = file_get_contents($file['unit_video_file']['tmp_name']);
+        //$file_name = $file['unit_video_file']['name'];
+        $unit_name = $this->request->getVar('unit_name');
+
+
+        if ($bucket->upload($content, ['name' => $unit_name])) {
+            $filelink = "https://storage.googleapis.com/workgress/" . $file['unit_video_file']['name'];
+            $model->Upload_Video($unit_name, $filelink);
+            echo "<div class='preview'>upload success</div>";
+        } else {
+            echo "<div class='preview'>something wrong</div>";
+        }
+
+        //return redirect()->to(base_url('test55'));
+    }
 }

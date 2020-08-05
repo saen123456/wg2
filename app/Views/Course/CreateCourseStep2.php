@@ -37,11 +37,11 @@
 </head>
 
 
-<body>
+<body class="body2">
 
-    <div class="main">
+    <div class="main2">
 
-        <div class="container">
+        <div class="container2">
             <form method="POST" id="signup-form" class="signup-form" action="#">
                 <div>
                     <?php
@@ -67,30 +67,73 @@
                     endif
                     ?>
                     <h3>หลักสูตร</h3>
-                    <fieldset>
+                    <fieldset class="fieldset2">
                         <h2>หลักสูตร</h2>
                         <p class="desc">เริ่มต้นรวมหลักสูตรของคุณเข้าด้วยกันด้วยการสร้างส่วน การบรรยาย และแบบฝึกหัด (โจทย์ แบบฝึกหัดการเขียนโค้ด และงานที่ได้รับมอบหมาย)</p>
-                        <div class="fieldset-content">
-                            <div class="form-row">
-                                <label class="form-label">ส่วนที่ 1 บทนำ</label>
+                        <div class="fieldset-content2">
+                            <div class="form-row2">
                                 <div class="form-flex">
                                     <div class="form-group">
-                                        <input type="text" name="first_name" id="first_name" />
-                                        <span class="text-input">First</span>
+
+
+                                        <div style="text-align:center;">
+                                            <div class="container">
+
+                                                <h3>Multi form file uploader using Jquery, PHP, Ajax, and Bootstrap - HackandPhp programming blog </h3>
+                                                <hr>
+
+                                                <div class="row">
+                                                    <div class='col-xs-12 col-sm-6 col-md-6 col-lg-6'>
+                                                        <ul class="list-inline">
+                                                            <li><button class="btn btn-success addmore" type="button"><i class="fa fa-plus"></i> เพิ่ม Unit</button></li>
+                                                            <li> <button class="btn btn-danger delete" type="button"><i class="fa fa-trash"></i> ลบ Unit</button></li>
+                                                            <li><button class="btn btn-sm btn-primary upload-all"><i class="fa fa-upload"></i> Upload ทั้งหมด</button></li>
+
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <table class="table table-bordered table-hover" id="table_auto">
+                                                    <tr id="row_0">
+                                                        <td><input class="case" type="checkbox" /></td>
+                                                        <td>
+                                                            <form action="#">
+                                                                <input type="text" name="unit_name" id="unit_name" placeholder="กรอกชื่อ unit ของคุณ เช่น ส่วนที่ 1 บทนำ " />
+                                                                <br>
+                                                                <div class="col-sm-3">
+                                                                    <input id="avatar" class="file-loading" type="file" name="unit_video_file">
+                                                                </div>
+                                                                <div class="col-sm-5">
+                                                                    <div class="progress progress-striped active">
+                                                                        <div class="progress-bar" style="width:0%"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-4">
+                                                                    <button class="btn btn-sm btn-info upload" type="submit"><i class="fa fa-upload"></i> Upload Unit</button>
+
+                                                            </form>
+                                                        </td>
+
+                                                    </tr>
+                                                </table>
+
+                                                <hr>
+
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="email" class="form-label">Email</label>
+                                <!-- <div class="form-group">
+                                <label for="email" class="form-label2">Email</label>
                                 <input type="email" name="email" id="email" />
                                 <span class="text-input">Example :<span> Jeff@gmail.com</span></span>
                             </div>
                             <div class="form-group">
-                                <label for="phone" class="form-label">Phone</label>
+                                <label for="phone" class="form-label2">Phone</label>
                                 <input type="text" name="phone" id="phone" />
                             </div>
                             <div class="form-date">
-                                <label for="birth_date" class="form-label">Birth Date</label>
+                                <label for="birth_date" class="form-label2">Birth Date</label>
                                 <div class="form-date-group">
                                     <div class="form-date-item">
                                         <select id="birth_month" name="birth_month"></select>
@@ -107,62 +150,61 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="ssn" class="form-label">SSN</label>
+                                <label for="ssn" class="form-label2">SSN</label>
                                 <input type="text" name="ssn" id="ssn" />
                             </div>
                             <div class="form-group">
-                                <label for="ssn" class="form-label">SSN</label>
+                                <label for="ssn" class="form-label2">SSN</label>
                                 <input type="text" name="ssn" id="ssn" />
                             </div>
                             <div class="form-group">
-                                <label for="ssn" class="form-label">SSN</label>
+                                <label for="ssn" class="form-label2">SSN</label>
                                 <input type="text" name="ssn" id="ssn" />
                             </div>
                             <div class="form-group">
-                                <label for="ssn" class="form-label">SSN</label>
+                                <label for="ssn" class="form-label2">SSN</label>
                                 <input type="text" name="ssn" id="ssn" />
                             </div>
                             <div class="form-group">
-                                <label for="ssn" class="form-label">SSN</label>
+                                <label for="ssn" class="form-label2">SSN</label>
                                 <input type="text" name="ssn" id="ssn" />
                             </div>
                             <div class="form-group">
-                                <label for="ssn" class="form-label">SSN</label>
+                                <label for="ssn" class="form-label2">SSN</label>
                                 <input type="text" name="ssn" id="ssn" />
                             </div>
                             <div class="form-group">
-                                <label for="ssn" class="form-label">SSN</label>
+                                <label for="ssn" class="form-label2">SSN</label>
                                 <input type="text" name="ssn" id="ssn" />
                             </div>
                             <div class="form-group">
-                                <label for="ssn" class="form-label">SSN</label>
+                                <label for="ssn" class="form-label2">SSN</label>
                                 <input type="text" name="ssn" id="ssn" />
-                            </div>
+                            </div> -->
 
-
-                        </div>
+                            </div>
                     </fieldset>
 
 
                     <h3>หน้าเริ่มต้นของหลักสูตร</h3>
-                    <fieldset>
+                    <fieldset class="fieldset2">
                         <h2>หน้าเริ่มต้นของหลักสูตร</h2>
                         <div class="form-find">
                             <p class="desc">Please enter your infomation and proceed to next step so we can build your
                                 account</p>
                         </div>
-                        <div class="fieldset-content">
+                        <div class="fieldset-content2">
                             <div class="form-group">
-                                <label for="find_bank" class="form-label">ชื่อหลักสูตร</label>
+                                <label for="find_bank" class="form-label2">ชื่อหลักสูตร</label>
                                 <input type="text" name="find_bank" id="find_bank" placeholder="ใส่ชื่อหลักสูตรของคุณ" maxlength="60" />
                             </div>
                             <div class="form-group">
-                                <label for="find_bank" class="form-label">คำอธิบายหลักสูตร</label>
+                                <label for="find_bank" class="form-label2">คำอธิบายหลักสูตร</label>
                                 <textarea placeholder="ใส่คำอธิบายของหลักสูตรคุณ">
                                     </textarea>
                             </div>
                             <div class="form-group-image">
-                                <label for="image" class="form-label">ภาพหลักสูตร</label>
+                                <label for="image" class="form-label2">ภาพหลักสูตร</label>
                                 <div class="row">
                                     <div class="main-image">
                                         <img data-purpose="image-preview" alt="ภาพหลักสูตร" width="491" height="276" src="<?php echo base_url('assets/img/pre-image.png'); ?>">
@@ -175,7 +217,7 @@
                                 </div>
                             </div>
                             <div class="form-group-image">
-                                <label for="image" class="form-label">วิดีโอโปรโมชั่น</label>
+                                <label for="image" class="form-label2">วิดีโอโปรโมชั่น</label>
                                 <div class="row">
                                     <div class="main-image">
                                         <img data-purpose="image-preview" alt="ภาพหลักสูตร" width="491" height="276" src="<?php echo base_url('assets/img/pre-image.png'); ?>">
@@ -194,10 +236,10 @@
                     </fieldset>
 
                     <h3>การกำหนดราคา</h3>
-                    <fieldset>
+                    <fieldset class="fieldset2">
                         <h2>Set Financial Goals</h2>
                         <p class="desc">Set up your money limit to reach the future plan</p>
-                        <div class="fieldset-content">
+                        <div class="fieldset-content2">
                             <div class="donate-us">
                                 <div class="price_slider ui-slider ui-slider-horizontal">
                                     <div id="slider-margin"></div>
@@ -217,6 +259,113 @@
         </div>
 </body>
 <!-- JS -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        var i = $('#table_auto tr').length; // Get the no.of rows in the table
+        $(".addmore").on('click', function() {
+            html = '<tr id="row_' + i + '">';
+            html += '<td><input class="case" type="checkbox"/></td>';
+            html += '<td>';
+            html += '<form action="#">';
+            html += '<input type="text" name="unit_name" id="unit_name" placeholder="กรอกชื่อ unit ของคุณ เช่น ส่วนที่ 1 บทนำ" />';
+            html += '<br>';
+            html += '<div class="col-sm-3"><input id="avatar" class="file-loading" type="file" name="unit_video_file" >';
+            html += '</div><div class="col-sm-5"><div class="progress progress-striped active"><div class="progress-bar" style="width:0%"></div></div></div><div class="col-sm-4">';
+            html += '<button class="btn btn-sm btn-info upload" type="submit"><i class="fa fa-upload"></i> Upload</button></div>';
+            html += '</form>';
+            html += '</td>';
+            html += '</tr>';
+
+            $('#table_auto').append(html); //Append the new row to the table
+            i++;
+        });
+        //to check all checkboxes
+        $(document).on('change', '#check_all', function() {
+            $('input[class=case]:checkbox').prop("checked", $(this).is(':checked'));
+        });
+
+        //deletes the selected table rows
+        $(".delete").on('click', function() {
+            var checkedVals = $('.case:checkbox:checked').map(function() {
+                return $(this).closest('tr').find('td:nth-child(3)').text();
+            }).get(); //Get the File name from the third column of the td.
+            var fileList = checkedVals.join(","); // join all file name by using the seperator ','.
+            var co = confirm("Are your sure Delete the file " + fileList + " ?");
+            if (co) {
+                $.post("delete.php", {
+                    'file': fileList //pass data 
+                }, function(data) {}, "json");
+
+                $('.case:checkbox:checked').parents("tr").remove(); //Renove the table row which is checked for deleted.
+                $('#check_all').prop("checked", false);
+            }
+
+        });
+        $('.upload-all').click(function() {
+            //submit all form
+            $('form').submit();
+        });
+        $('.cancel-all').click(function() {
+            //submit all form
+            $('form .cancel').click();
+        });
+
+        $(document).on('submit', 'form', function(e) {
+            e.preventDefault();
+            $form = $(this);
+            uploadImage($form);
+        });
+
+        function uploadImage($form) {
+            $form.find('.progress-bar').removeClass('progress-bar-success')
+                .removeClass('progress-bar-danger');
+
+            var xhr = new window.XMLHttpRequest();
+            $.ajax({
+                url: "<?= site_url('/CourseController/Upload_Unit') ?>",
+                type: "POST",
+                data: new FormData($form[0]),
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function(data) {
+                    $form.closest('tr').find('td:nth-child(3)').text(data.image);
+                    $form.closest('tr').find('td:nth-child(4)').html(data.destination);
+                    $form[0].reset();
+                },
+                error: function() {},
+                xhr: function() {
+
+                    //Upload progress
+                    xhr.upload.addEventListener("progress", function(e) {
+                        if (e.lengthComputable) {
+                            var percentComplete = (e.loaded || e.position) * 100 / e.total;
+                            //Do something with upload progress
+                            console.log(percentComplete);
+                            $form.find('.progress-bar').width(percentComplete + '%').html(percentComplete + '%');
+                        }
+                    }, false);
+                    xhr.addEventListener('load', function(e) {
+                        $form.find('.progress-bar').addClass('progress-bar-success').html('upload completed....');
+                        setTimeout(function() {
+                            $(".progress-bar").hide();
+                        }, 5000);
+                        $(".progress-bar").show();
+                    });
+                    return xhr;
+                }
+
+            });
+            $form.on('click', '.cancel', function() {
+                xhr.abort();
+                $form.find('.progress-bar')
+                    .addClass('progress-bar-danger')
+                    .removeClass('progress-bar-success')
+                    .html('upload aborted...');
+            });
+        }
+    });
+</script>
 <script src="<?php echo base_url('assets/course/step2/vendor2/jquery-validation/dist/jquery.validate.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/course/step2/vendor2/jquery-validation/dist/additional-methods.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/course/step2/vendor2/jquery-steps/jquery.steps.min.js'); ?>"></script>
